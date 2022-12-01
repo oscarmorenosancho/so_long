@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/01 19:13:09 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/01 19:25:04 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ LIBS_FLAGS = -lm -Lmlx -lmlx -framework OpenGL -framework AppKit
 %.o : %.c ${HEADER}
 	${CC} ${CFLAGS} -I ${HEADER} -I ${LIBFT_H} -c $< -o ${<:.c=.o}
 
-all : $(NAME) 
+all : ${LIBFT_A} ${MLX_A} $(NAME) 
 
 -include: $(DEPS)
 $(NAME) : ${LIBFT_A} ${MLX_A} $(LIBFT_H)
