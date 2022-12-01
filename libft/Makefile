@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/01 17:51:27 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/01 19:09:23 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,12 +73,12 @@ SRCX = ft_copy_pos.c\
 	ft_strreduce.c
 
 SRC_PATH = src/
-SRC_BONUS = src_bonus/
+BONUS_PATH = src_bonus/
 GNL_PATH = get_next_line/
 X_PATH = src_extra/
 
 SRC_F = $(addprefix $(SRC_PATH), $(SRC))
-SRCB_F = $(addprefix $(SRC_BONUS), $(SRCB))
+SRCB_F = $(addprefix $(BONUS_PATH), $(SRCB))
 SRCGNL_F = $(addprefix $(GNL_PATH), $(SRCGNL))
 SRCX_F = $(addprefix $(X_PATH), $(SRCX))
 
