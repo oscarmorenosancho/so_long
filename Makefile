@@ -6,18 +6,42 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/01 19:25:04 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/02 13:34:14 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-SRC = src/*.c get_next_line/*.c
-SRCB = bonus/*.c
+SRC_R = events.c\
+ft_check_collision.c\
+ft_check_map.c\
+ft_check_trail.c\
+ft_check_trail_stack.c\
+ft_count_map_stats.c\
+ft_draw.c\
+ft_draw_game_chars.c\
+ft_extract_game_chars.c\
+ft_init_tab.c\
+ft_map_2_table.c\
+ft_read_map.c\
+ft_update_pos.c\
+game_class.c\
+graph_ctx.c\
+images.c\
+main.c\
+table_class.c
+
+SRCB_R = 
+
+SRC_PATH = src/
+SRCB_PATH = src_bonus/
+SRC = ${addprefix $(SRC_PATH), $(SRC_R)}
+SRCB = ${addprefix $(SRCB_PATH), $(SRCB_R)}
 
 OBJ := $(SRC:.c=.o)
 OBJB := $(SRCB:.c=.o)
 DEPS = $(SRC:.c=.d)
 DEPSB = $(SRCB:.c=.d)
+DEPS_SL = so_long.d
 CC	= 	gcc
 CFLAGS = -Wall -Werror -Wextra -MMD
 RM	= 	rm -f
@@ -25,25 +49,29 @@ LIBC	= 	ar -rcs
 HEADER = src/main.h
 LIBFT_H = libft/libft.h
 LIBFT_A = libft/libft.a
+LIBFT_D = libft/libft.d
 MLX_A = mlx/libmlx.a
 LIBS_FLAGS = -lm -Lmlx -lmlx -framework OpenGL -framework AppKit
+LIBFT_D_CONT = $(shell cat ${LIBFT_D})
 
 %.o : %.c ${HEADER}
 	${CC} ${CFLAGS} -I ${HEADER} -I ${LIBFT_H} -c $< -o ${<:.c=.o}
 
-all : ${LIBFT_A} ${MLX_A} $(NAME) 
+all : $(NAME) 
 
--include: $(DEPS)
-$(NAME) : ${LIBFT_A} ${MLX_A} $(LIBFT_H)
+-include $(DEPS) $(DEPS_SL)
+$(NAME) : ${OBJ} ${LIBFT_A} ${MLX_A} $(LIBFT_H)
 	${CC} ${CFLAGS} -I ${HEADER}  -I ${LIBFT_H} \
-		src/*.c ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
+		${OBJ} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 
--include: $(DEPS) $(DEPSB)
-bonus: $(OBJ) $(OBJB) $(HEADER) $(LIBFT_H)
-	$(LIBC) $(NAME) $(OBJ) $(OBJB)
+-include $(DEPS) $(DEPSB) $(DEPS_SL)
+bonus: ${OBJ} ${OBJB} ${LIBFT_A} ${MLX_A} ${HEADER} ${LIBFT_H}
+	${CC} ${CFLAGS} -I ${HEADER}  -I ${LIBFT_H} \
+		${OBJ} ${OBJB} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 	@touch $@
 
-${LIBFT_A} :
+-include $(DEPS_SL)
+${LIBFT_A} : ${LIBFT_D_CONT}
 	make bonus -C libft
 
 ${MLX_A} :
