@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/02 13:34:14 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/02 13:50:34 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,12 +60,12 @@ LIBFT_D_CONT = $(shell cat ${LIBFT_D})
 all : $(NAME) 
 
 -include $(DEPS) $(DEPS_SL)
-$(NAME) : ${OBJ} ${LIBFT_A} ${MLX_A} $(LIBFT_H)
+$(NAME) : ${LIBFT_A} ${MLX_A} ${OBJ} $(LIBFT_H)
 	${CC} ${CFLAGS} -I ${HEADER}  -I ${LIBFT_H} \
 		${OBJ} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 
 -include $(DEPS) $(DEPSB) $(DEPS_SL)
-bonus: ${OBJ} ${OBJB} ${LIBFT_A} ${MLX_A} ${HEADER} ${LIBFT_H}
+bonus: ${LIBFT_A} ${MLX_A} ${OBJ} ${OBJB} ${HEADER} ${LIBFT_H}
 	${CC} ${CFLAGS} -I ${HEADER}  -I ${LIBFT_H} \
 		${OBJ} ${OBJB} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 	@touch $@
@@ -75,7 +75,7 @@ ${LIBFT_A} : ${LIBFT_D_CONT}
 	make bonus -C libft
 
 ${MLX_A} :
-	make -C mlx
+	make -C mlx 2> /dev/null
 
 clean :
 	$(RM) $(OBJ)
