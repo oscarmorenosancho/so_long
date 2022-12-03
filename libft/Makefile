@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/02 13:03:30 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/03 16:25:40 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,7 +119,7 @@ HEADER_FP = $(addprefix $(LIBFT_PATH), $(HEADER))
 all : $(NAME)
 
 -include $(DEPS)
-$(NAME) : $(OBJ) $(OBJGNL) $(OBJX) $(HEADER) $(MAND_H) $(GNL_H) $(X_H)
+$(NAME) : $(OBJ) $(HEADER) $(MAND_H)
 	$(LIBC) $(NAME) $(OBJ)
 	@echo $(SRC_FP) > $(NAME:.a=.d)
 
