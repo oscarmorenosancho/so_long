@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 11:59:36 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/11/28 12:52:56 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:44:27 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "so_long.h"
 
 static void	ft_extract_player(t_game *game, int pos[2])
 {

@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:36:40 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/11/28 10:53:05 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:41:05 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "so_long.h"
 
 static char	*ft_take_argument(int argc, char const *argv[])
 {

@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 12:34:34 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/11/28 14:31:03 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:44:25 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "so_long.h"
 
 static void	ft_update(unsigned int it, char *s, void *acum)
 {

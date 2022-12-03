@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/02 13:50:34 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/03 11:46:24 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ CC	= 	gcc
 CFLAGS = -Wall -Werror -Wextra -MMD
 RM	= 	rm -f
 LIBC	= 	ar -rcs
-HEADER = src/main.h
+HEADER = src/so_long.h
 LIBFT_H = libft/libft.h
 LIBFT_A = libft/libft.a
 LIBFT_D = libft/libft.d

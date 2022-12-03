@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:33:11 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/11/29 14:54:11 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:45:27 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "so_long.h"
 
 static void	ft_init_img_null(t_graphics *gr_ctx)
 {

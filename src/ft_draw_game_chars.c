@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:57:39 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/11/28 13:33:13 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:44:26 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "so_long.h"
 
 static void	ft_draw_element(t_game *game, int *pos, int el)
 {

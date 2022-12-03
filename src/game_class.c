@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:41:52 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/11/30 13:31:27 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:45:10 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "so_long.h"
 
 t_game	*game_constructor(char *map_file)
 {

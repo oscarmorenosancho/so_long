@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 16:00:17 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/11/28 12:52:54 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:44:46 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "so_long.h"
 
 static void	ft_char_2_table(unsigned int it, char *s, void *arg)
 {

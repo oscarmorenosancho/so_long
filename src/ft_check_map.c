@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:23:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/11/28 17:34:52 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:44:36 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "so_long.h"
 
 static int	ft_equals(void *s, void *arg)
 {

@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:35:39 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 17:47:00 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:44:59 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "so_long.h"
 
 static void	ft_print_movements(int movements)
 {

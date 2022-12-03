@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:28:05 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/11/29 12:19:16 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:44:53 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "so_long.h"
 
 static t_list	*ft_read_map_lines(int fd)
 {
