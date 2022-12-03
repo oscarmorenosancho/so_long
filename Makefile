@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/03 14:07:05 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/03 14:23:56 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,6 @@ OBJ := $(SRC:.c=.o)
 OBJB := $(SRCB:.c=.o)
 DEPS = $(SRC:.c=.d)
 DEPSB = $(SRCB:.c=.d)
-DEPS_SL = so_long.d
 CC	= 	gcc
 CFLAGS = -Wall -Werror -Wextra
 CFD = -MMD
@@ -71,26 +70,27 @@ LIBFT_H = libft/libft.h
 LIBFT_A = libft/libft.a
 LIBFT_D = libft/libft.d
 MLX_A = mlx/libmlx.a
-LIBS_FLAGS = -lm -Lmlx -lmlx -framework OpenGL -framework AppKit
+MLX_H = mlx/libmlx.h
+LIBS_FLAGS = -lm -Lmlx -lmlx -framework OpenGL -framework AppKit -I ${LIBFT_H} -I ${MLX_H}
 LIBFT_D_CONT = $(shell cat ${LIBFT_D})
 
 src/%.o : src/%.c ${HEADER}
-	${CC} ${CFLAGS} ${CFD} -I ${HEADER} -I ${LIBFT_H} -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} ${CFD} -I ${HEADER} -I ${LIBFT_H} -I ${MLX_H} -c $< -o ${<:.c=.o}
 
 src_bonus/%.o : src_bonus/%.c ${HEADERB}
-	${CC} ${CFLAGS} ${CFD} -I ${HEADERB} -I ${LIBFT_H} -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} ${CFD} -I ${HEADERB} -I ${LIBFT_H} -I ${MLX_H} -c $< -o ${<:.c=.o}
 
 all : $(NAME)
 bonus : $(NAMEB)
 
--include $(DEPS) $(DEPS_SL)
-$(NAME) : ${LIBFT_A} ${MLX_A} ${HEADER} $(LIBFT_H) ${OBJ}
-	${CC} ${CFLAGS} -I ${HEADER} -I ${LIBFT_H} \
+-include $(DEPS)
+$(NAME) : ${LIBFT_A} ${MLX_A} ${OBJ}
+	${CC} ${CFLAGS} -I ${HEADER} \
 		${OBJ} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 
--include $(DEPSB) $(DEPS_SL)
-$(NAMEB): ${LIBFT_A} ${MLX_A} ${HEADERB} ${LIBFT_H} ${OBJB}
-	${CC} ${CFLAGS} -I ${HEADERB}  -I ${LIBFT_H} \
+-include $(DEPSB)
+$(NAMEB): ${LIBFT_A} ${MLX_A} ${OBJB}
+	${CC} ${CFLAGS} -I ${HEADERB} \
 		${OBJB} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 
 -include $(DEPS_SL)
