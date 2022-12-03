@@ -6,13 +6,13 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/03 16:23:30 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/03 16:58:27 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long
-NAMEB = ${addsuffix _bonus, $(NAME)}
-SRC_R = events.c\
+NAME := so_long
+NAMEB := ${addsuffix _bonus, $(NAME)}
+SRC_R := events.c\
 ft_check_collision.c\
 ft_check_map.c\
 ft_check_trail.c\
@@ -31,7 +31,7 @@ images.c\
 main.c\
 table_class.c
 
-SRCB_R = events_bonus.c\
+SRCB_R := events_bonus.c\
 ft_check_collision_bonus.c\
 ft_check_map_bonus.c\
 ft_check_trail_bonus.c\
@@ -50,29 +50,29 @@ images_bonus.c\
 main_bonus.c\
 table_class_bonus.c
 
-SRC_PATH = src/
-SRCB_PATH = src_bonus/
-SRC = ${addprefix $(SRC_PATH), $(SRC_R)}
-SRCB = ${addprefix $(SRCB_PATH), $(SRCB_R)}
+SRC_PATH := src/
+SRCB_PATH := src_bonus/
+SRC := ${addprefix $(SRC_PATH), $(SRC_R)}
+SRCB := ${addprefix $(SRCB_PATH), $(SRCB_R)}
 
 OBJ := $(SRC:.c=.o)
 OBJB := $(SRCB:.c=.o)
-DEPS = $(SRC:.c=.d)
-DEPSB = $(SRCB:.c=.d)
-CC	= 	gcc
-CFLAGS = -Wall -Werror -Wextra
-CFD = -MMD
-RM	= 	rm -f
-LIBC	= 	ar -rcs
-HEADER = ${addprefix $(SRC_PATH), so_long.h}
-HEADERB = ${addprefix $(SRCB_PATH), so_long_bonus.h}
-LIBFT_H = libft/libft.h
-LIBFT_A = libft/libft.a
-LIBFT_D = libft/libft.d
-MLX_A = mlx/libmlx.a
-MLX_H = mlx/libmlx.h
-LIBS_FLAGS = -lm -Lmlx -lmlx -framework OpenGL -framework AppKit -I ${LIBFT_H} -I ${MLX_H}
-LIBFT_D_CONT = $(shell cat ${LIBFT_D})
+DEPS := $(SRC:.c=.d)
+DEPSB := $(SRCB:.c=.d)
+CC	:= 	gcc
+CFLAGS := -Wall -Werror -Wextra
+CFD := -MMD
+RM	:= 	rm -f
+LIBC := 	ar -rcs
+HEADER := ${addprefix $(SRC_PATH), so_long.h}
+HEADERB := ${addprefix $(SRCB_PATH), so_long_bonus.h}
+LIBFT_H := libft/libft.h
+LIBFT_A := libft/libft.a
+LIBFT_D := libft/libft.d
+MLX_A := mlx/libmlx.a
+MLX_H := mlx/libmlx.h
+LIBS_FLAGS := -lm -Lmlx -lmlx -framework OpenGL -framework AppKit -I ${LIBFT_H} -I ${MLX_H}
+LIBFT_D_CONT := $(shell cat ${LIBFT_D})
 
 src/%.o : src/%.c ${HEADER}
 	${CC} ${CFLAGS} ${CFD} -I ${HEADER} -I ${LIBFT_H} -I ${MLX_H} -c $< -o ${<:.c=.o}
