@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_collision.c                               :+:      :+:    :+:   */
+/*   ft_check_collision_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:28:27 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 12:03:59 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 18:47:13 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ t_list	*ft_check_collision(t_game *game, int *displ, int el)
 	lst = NULL;
 	if (! game)
 		return (0);
-	if (el == RI_COLLECT)
+	if (el == GO_COLLECT)
 		lst = game->collectables;
-	else if (el == RI_ENEMY)
+	else if (el == GO_ENEMY)
 		lst = game->enemies;
 	dest_pos[0] = game->pos[0] + displ[0];
 	dest_pos[1] = game->pos[1] + displ[1];

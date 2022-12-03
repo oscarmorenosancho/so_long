@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_update_pos.c                                    :+:      :+:    :+:   */
+/*   ft_update_pos_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:35:39 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 12:02:53 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 18:52:04 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ static int	ft_check_interactions(t_game *game, int *displ)
 	t_list	*enemy;
 	t_list	*collectable;
 
-	enemy = ft_check_collision(game, displ, RI_ENEMY);
-	collectable = ft_check_collision(game, displ, RI_COLLECT);
+	enemy = ft_check_collision(game, displ, GO_ENEMY);
+	collectable = ft_check_collision(game, displ, GO_COLLECT);
 	if (enemy)
 	{
 		ft_putstr_fd("Collision with enemy\n", 1);
@@ -67,7 +67,7 @@ static int	ft_check_interactions(t_game *game, int *displ)
 	}
 	if (collectable)
 		ft_lstdeletenode(&game->collectables, collectable);
-	return (enemy != NULL || ft_check_dest(game, displ, RI_WALL));
+	return (enemy != NULL || ft_check_dest(game, displ, GO_WALL));
 }
 
 int	ft_update_pos(int keycode, t_game *game)

@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:37:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 18:12:08 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 18:43:43 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stddef.h>
-# define MAX_IMG		8
+# define MAX_GO			8
 # define DISP_WIDTH		2600
 # define DISP_HEIGHT	1360
 
@@ -133,16 +133,16 @@ enum e_keycodes
 	KC_RETURN = 0x24
 };
 
-enum e_img_refs
+enum e_gr_ob_refs
 {
-	RI_GROUND = 0,
-	RI_WALL = 1,
-	RI_EXIT = 2,
-	RI_PLAYER = 3,
-	RI_COLLECT = 4,
-	RI_ENEMY = 5,
-	RI_BLOCK1 = 6,
-	RI_BLOCK2 = 7
+	GO_GROUND = 0,
+	GO_WALL = 1,
+	GO_EXIT = 2,
+	GO_PLAYER = 3,
+	GO_COLLECT = 4,
+	GO_ENEMY = 5,
+	GO_BLOCK1 = 6,
+	GO_BLOCK2 = 7
 };
 
 typedef struct s_image
@@ -150,6 +150,13 @@ typedef struct s_image
 	void	*ref;
 	int		size[2];
 }	t_image;
+
+typedef struct s_gr_ob
+{
+	t_image	frms[10];
+	int		count;
+}	t_gr_ob;
+
 
 typedef struct s_game_stats
 {

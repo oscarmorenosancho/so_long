@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:11:29 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 11:44:28 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 18:27:30 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,16 +81,16 @@ int	ft_init_tab(t_game *game)
 		j = 0;
 		while (j < game->t->size[1])
 		{
-			game->t->mat[j][i] = RI_GROUND;
+			game->t->mat[j][i] = GO_GROUND;
 			j++;
 		}
 		i++;
 	}
-	ft_set_rand(game, RI_EXIT, game->exit_pos);
-	ft_set_rand(game, RI_PLAYER, game->pos);
-	ft_set_n_rand(game, n * 5, RI_WALL);
-	ft_set_n_rand(game, n, RI_COLLECT);
-	ft_set_n_rand(game, n, RI_ENEMY);
-	game->t->mat[game->pos[1]][game->pos[0]] = RI_GROUND;
+	ft_set_rand(game, GO_EXIT, game->exit_pos);
+	ft_set_rand(game, GO_PLAYER, game->pos);
+	ft_set_n_rand(game, n * 5, GO_WALL);
+	ft_set_n_rand(game, n, GO_COLLECT);
+	ft_set_n_rand(game, n, GO_ENEMY);
+	game->t->mat[game->pos[1]][game->pos[0]] = GO_GROUND;
 	return (0);
 }

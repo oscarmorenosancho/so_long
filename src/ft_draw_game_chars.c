@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:57:39 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 11:44:26 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 18:34:41 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	ft_draw_element(t_game *game, int *pos, int el)
 
 	gr_ctx = game->gr_ctx;
 	mlx_put_image_to_window(gr_ctx->inst, gr_ctx->wnd, \
-		gr_ctx->img[el].ref, \
+		gr_ctx->gos[el].ref, \
 		pos[0] * BLOCK_WIDTH, pos[1] * BLOCK_HEIGHT);
 }
 
@@ -28,7 +28,7 @@ static void	ft_draw_collectable(unsigned int i, void *content, void *arg)
 
 	game = arg;
 	if (i >= 0)
-		ft_draw_element(game, (int *)content, RI_COLLECT);
+		ft_draw_element(game, (int *)content, GO_COLLECT);
 }
 
 static void	ft_draw_enemy(unsigned int i, void *content, void *arg)
@@ -37,16 +37,16 @@ static void	ft_draw_enemy(unsigned int i, void *content, void *arg)
 
 	game = arg;
 	if (i >= 0)
-		ft_draw_element(game, (int *)content, RI_ENEMY);
+		ft_draw_element(game, (int *)content, GO_ENEMY);
 }
 
 int	ft_draw_game_chars(t_game *game)
 {
 	if (! game)
 		return (0);
-	ft_draw_element(game, game->exit_pos, RI_EXIT);
+	ft_draw_element(game, game->exit_pos, GO_EXIT);
 	ft_lstreduce(game->collectables, &ft_draw_collectable, game);
 	ft_lstreduce(game->enemies, &ft_draw_enemy, game);
-	ft_draw_element(game, game->pos, RI_PLAYER);
+	ft_draw_element(game, game->pos, GO_PLAYER);
 	return (1);
 }

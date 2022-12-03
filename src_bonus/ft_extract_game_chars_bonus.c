@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_extract_game_chars.c                            :+:      :+:    :+:   */
+/*   ft_extract_game_chars_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 11:59:36 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 12:03:15 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 18:50:40 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 static void	ft_extract_player(t_game *game, int pos[2])
 {
 	ft_copy_pos (game->pos, pos);
-	game->t->mat[pos[1]][pos[0]] = RI_GROUND;
+	game->t->mat[pos[1]][pos[0]] = GO_GROUND;
 }
 
 static void	ft_extract_exit(t_game *game, int pos[2])
 {
 	ft_copy_pos (game->exit_pos, pos);
-	game->t->mat[pos[1]][pos[0]] = RI_GROUND;
+	game->t->mat[pos[1]][pos[0]] = GO_GROUND;
 }
 
 static void	ft_extract_collectables(t_game *game, int pos[2])
@@ -44,7 +44,7 @@ static void	ft_extract_collectables(t_game *game, int pos[2])
 	}
 	ft_copy_pos (content, pos);
 	ft_lstadd_front(&game->collectables, node);
-	game->t->mat[pos[1]][pos[0]] = RI_GROUND;
+	game->t->mat[pos[1]][pos[0]] = GO_GROUND;
 }
 
 static void	ft_extract_enemies(t_game *game, int pos[2])
@@ -67,7 +67,7 @@ static void	ft_extract_enemies(t_game *game, int pos[2])
 	}
 	ft_copy_pos (content, pos);
 	ft_lstadd_front(&game->enemies, node);
-	game->t->mat[pos[1]][pos[0]] = RI_GROUND;
+	game->t->mat[pos[1]][pos[0]] = GO_GROUND;
 }
 
 int	ft_extract_game_chars(t_game *game)
@@ -82,13 +82,13 @@ int	ft_extract_game_chars(t_game *game)
 		it[0] = 0;
 		while (it[0] < game->t->size[0])
 		{
-			if (game->t->mat[it[1]][it[0]] == RI_PLAYER)
+			if (game->t->mat[it[1]][it[0]] == GO_PLAYER)
 				ft_extract_player(game, it);
-			else if (game->t->mat[it[1]][it[0]] == RI_EXIT)
+			else if (game->t->mat[it[1]][it[0]] == GO_EXIT)
 				ft_extract_exit(game, it);
-			else if (game->t->mat[it[1]][it[0]] == RI_COLLECT)
+			else if (game->t->mat[it[1]][it[0]] == GO_COLLECT)
 				ft_extract_collectables(game, it);
-			else if (game->t->mat[it[1]][it[0]] == RI_ENEMY)
+			else if (game->t->mat[it[1]][it[0]] == GO_ENEMY)
 				ft_extract_enemies(game, it);
 			it[0]++;
 		}

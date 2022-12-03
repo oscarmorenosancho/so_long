@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:37:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 18:12:29 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 18:44:11 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_graphics
 	void	*inst;
 	void	*wnd;
 	int		wnd_size[2];
-	t_image	img[MAX_IMG];
+	t_gr_ob	gos[MAX_GO];
 }	t_graphics;
 
 typedef struct s_game

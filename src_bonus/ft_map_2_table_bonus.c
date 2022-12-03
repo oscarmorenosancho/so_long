@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map_2_table.c                                   :+:      :+:    :+:   */
+/*   ft_map_2_table_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 16:00:17 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 12:03:03 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 18:51:39 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ static void	ft_char_2_table(unsigned int it, char *s, void *arg)
 		return ;
 	row = (int *)arg;
 	if (*s == '0')
-		row[it] = RI_GROUND;
+		row[it] = GO_GROUND;
 	else if (*s == '1')
-		row[it] = RI_WALL;
+		row[it] = GO_WALL;
 	else if (*s == 'P')
-		row[it] = RI_PLAYER;
+		row[it] = GO_PLAYER;
 	else if (*s == 'E')
-		row[it] = RI_EXIT;
+		row[it] = GO_EXIT;
 	else if (*s == 'C')
-		row[it] = RI_COLLECT;
+		row[it] = GO_COLLECT;
 	else if (*s == 'S')
-		row[it] = RI_ENEMY;
+		row[it] = GO_ENEMY;
 }
 
 static void	ft_line_2_table(unsigned int it, void *content, void *arg)

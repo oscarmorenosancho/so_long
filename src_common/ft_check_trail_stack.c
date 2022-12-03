@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:16:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 17:55:09 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 18:27:22 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	ft_print_pos_push(int *pos)
 int	ft_push_trail_pos(t_trail_data *td, int *pos)
 {
 	td->node = NULL;
-	if (td->t->mat[pos[1]][pos[0]] == RI_WALL || \
+	if (td->t->mat[pos[1]][pos[0]] == GO_WALL || \
 		td->t->mat[pos[1]][pos[0]] > 99)
 		return (1);
 	td->pos = ft_dup_pos(pos);
@@ -94,13 +94,13 @@ int	ft_check_stack(t_trail_data *td)
 		td->stack = node->next;
 		pos = node->content;
 		el = td->t->mat[pos[1]][pos[0]];
-		if (el % 100 == RI_PLAYER)
+		if (el % 100 == GO_PLAYER)
 			td->stats.players++;
-		else if (el % 100 == RI_EXIT)
+		else if (el % 100 == GO_EXIT)
 			td->stats.exits++;
-		else if (el % 100 == RI_COLLECT)
+		else if (el % 100 == GO_COLLECT)
 			td->stats.collectables++;
-		td->t->mat[pos[1]][pos[0]] = RI_WALL;
+		td->t->mat[pos[1]][pos[0]] = GO_WALL;
 		res = ft_push_adjacents(td, pos);
 		ft_lstdelone(node, &free);
 	}
