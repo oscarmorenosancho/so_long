@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:16:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 11:44:35 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:55:09 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 
 static void	ft_print_pos_push(int *pos)
 {

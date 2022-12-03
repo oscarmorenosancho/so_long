@@ -6,57 +6,62 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/03 16:58:27 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/03 18:04:58 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := so_long
 NAMEB := ${addsuffix _bonus, $(NAME)}
+
+SRCC_R:= ft_read_map.c\
+ft_check_trail_stack.c\
+table_class.c
+
 SRC_R := events.c\
 ft_check_collision.c\
 ft_check_map.c\
 ft_check_trail.c\
-ft_check_trail_stack.c\
 ft_count_map_stats.c\
 ft_draw.c\
 ft_draw_game_chars.c\
 ft_extract_game_chars.c\
 ft_init_tab.c\
 ft_map_2_table.c\
-ft_read_map.c\
 ft_update_pos.c\
 game_class.c\
 graph_ctx.c\
 images.c\
 main.c\
-table_class.c
 
 SRCB_R := events_bonus.c\
 ft_check_collision_bonus.c\
 ft_check_map_bonus.c\
 ft_check_trail_bonus.c\
-ft_check_trail_stack_bonus.c\
 ft_count_map_stats_bonus.c\
 ft_draw_bonus.c\
 ft_draw_game_chars_bonus.c\
 ft_extract_game_chars_bonus.c\
 ft_init_tab_bonus.c\
 ft_map_2_table_bonus.c\
-ft_read_map_bonus.c\
 ft_update_pos_bonus.c\
 game_class_bonus.c\
 graph_ctx_bonus.c\
 images_bonus.c\
 main_bonus.c\
-table_class_bonus.c
 
+SRCC_PATH := src_common/
 SRC_PATH := src/
 SRCB_PATH := src_bonus/
+LIBFT_PATH := libft/
+MLX_PATH := mlx/
+SRCC := ${addprefix $(SRCC_PATH), $(SRCC_R)}
 SRC := ${addprefix $(SRC_PATH), $(SRC_R)}
 SRCB := ${addprefix $(SRCB_PATH), $(SRCB_R)}
 
+OBJC := $(SRCC:.c=.o)
 OBJ := $(SRC:.c=.o)
 OBJB := $(SRCB:.c=.o)
+DEPSC := $(SRCC:.c=.d)
 DEPS := $(SRC:.c=.d)
 DEPSB := $(SRCB:.c=.d)
 CC	:= 	gcc
@@ -64,34 +69,38 @@ CFLAGS := -Wall -Werror -Wextra
 CFD := -MMD
 RM	:= 	rm -f
 LIBC := 	ar -rcs
+HEADERC := ${addprefix $(SRCC_PATH), common.h}
 HEADER := ${addprefix $(SRC_PATH), so_long.h}
 HEADERB := ${addprefix $(SRCB_PATH), so_long_bonus.h}
-LIBFT_H := libft/libft.h
-LIBFT_A := libft/libft.a
-LIBFT_D := libft/libft.d
-MLX_A := mlx/libmlx.a
-MLX_H := mlx/libmlx.h
+LIBFT_H := ${addprefix $(LIBFT_PATH), libft.h}
+LIBFT_A := ${addprefix $(LIBFT_PATH), libft.a}
+LIBFT_D := ${addprefix $(LIBFT_PATH), libft.d}
+MLX_A := ${addprefix $(MLX_PATH), libmlx.a}
+MLX_H := ${addprefix $(MLX_PATH), libmlx.h}
 LIBS_FLAGS := -lm -Lmlx -lmlx -framework OpenGL -framework AppKit -I ${LIBFT_H} -I ${MLX_H}
 LIBFT_D_CONT := $(shell cat ${LIBFT_D})
 
 src/%.o : src/%.c ${HEADER}
-	${CC} ${CFLAGS} ${CFD} -I ${HEADER} -I ${LIBFT_H} -I ${MLX_H} -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} ${CFD} -I ${HEADER} -I ${LIBFT_H} -I ${MLX_H} -c $< -o $@
+
+src_common/%.o : src_common/%.c ${HEADERC}
+	${CC} ${CFLAGS} ${CFD} -I ${HEADERC} -I ${LIBFT_H} -I ${MLX_H} -c $< -o $@
 
 src_bonus/%.o : src_bonus/%.c ${HEADERB}
-	${CC} ${CFLAGS} ${CFD} -I ${HEADERB} -I ${LIBFT_H} -I ${MLX_H} -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} ${CFD} -I ${HEADERB} -I ${LIBFT_H} -I ${MLX_H} -c $< -o $@
 
 all : $(NAME)
 bonus : $(NAMEB)
 
 -include $(DEPS)
-$(NAME) : ${LIBFT_A} ${MLX_A} ${OBJ}
+$(NAME) : ${LIBFT_A} ${MLX_A} ${OBJC} ${OBJ} 
 	${CC} ${CFLAGS} -I ${HEADER} \
-		${OBJ} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
+		${OBJC} ${OBJ} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 
 -include $(DEPSB)
-$(NAMEB): ${LIBFT_A} ${MLX_A} ${OBJB}
+$(NAMEB): ${LIBFT_A} ${MLX_A} ${OBJC} ${OBJB}
 	${CC} ${CFLAGS} -I ${HEADERB} \
-		${OBJB} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
+		${OBJC} ${OBJB} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 
 ${LIBFT_A} : ${LIBFT_D_CONT}
 	make bonus -C libft
@@ -101,8 +110,10 @@ ${MLX_A} :
 
 clean :
 	$(RM) $(OBJ)
+	$(RM) $(OBJC)
 	$(RM) $(OBJB)
 	$(RM) $(DEPS)
+	$(RM) $(DEPSC)
 	$(RM) $(DEPSB)
 	$(RM) *.o
 	$(RM) *.d
