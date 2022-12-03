@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/03 14:23:56 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/03 14:26:56 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,6 @@ $(NAMEB): ${LIBFT_A} ${MLX_A} ${OBJB}
 	${CC} ${CFLAGS} -I ${HEADERB} \
 		${OBJB} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 
--include $(DEPS_SL)
 ${LIBFT_A} : ${LIBFT_D_CONT}
 	make bonus -C libft
 
