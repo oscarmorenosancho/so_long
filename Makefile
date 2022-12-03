@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/03 11:46:24 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/03 12:16:09 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,24 @@ images.c\
 main.c\
 table_class.c
 
-SRCB_R = 
+SRCB_R = events_bonus.c\
+ft_check_collision_bonus.c\
+ft_check_map_bonus.c\
+ft_check_trail_bonus.c\
+ft_check_trail_stack_bonus.c\
+ft_count_map_stats_bonus.c\
+ft_draw_bonus.c\
+ft_draw_game_chars_bonus.c\
+ft_extract_game_chars_bonus.c\
+ft_init_tab_bonus.c\
+ft_map_2_table_bonus.c\
+ft_read_map_bonus.c\
+ft_update_pos_bonus.c\
+game_class_bonus.c\
+graph_ctx_bonus.c\
+images_bonus.c\
+main_bonus.c\
+table_class_bonus.c
 
 SRC_PATH = src/
 SRCB_PATH = src_bonus/
@@ -47,6 +64,7 @@ CFLAGS = -Wall -Werror -Wextra -MMD
 RM	= 	rm -f
 LIBC	= 	ar -rcs
 HEADER = src/so_long.h
+HEADERB = src_bonus/so_long_bonus.h
 LIBFT_H = libft/libft.h
 LIBFT_A = libft/libft.a
 LIBFT_D = libft/libft.d
@@ -64,10 +82,10 @@ $(NAME) : ${LIBFT_A} ${MLX_A} ${OBJ} $(LIBFT_H)
 	${CC} ${CFLAGS} -I ${HEADER}  -I ${LIBFT_H} \
 		${OBJ} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 
--include $(DEPS) $(DEPSB) $(DEPS_SL)
-bonus: ${LIBFT_A} ${MLX_A} ${OBJ} ${OBJB} ${HEADER} ${LIBFT_H}
-	${CC} ${CFLAGS} -I ${HEADER}  -I ${LIBFT_H} \
-		${OBJ} ${OBJB} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
+-include $(DEPSB) $(DEPS_SL)
+bonus: ${LIBFT_A} ${MLX_A} ${OBJB} ${HEADERB} ${LIBFT_H}
+	${CC} ${CFLAGS} -I ${HEADERB}  -I ${LIBFT_H} \
+		${OBJB} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $(NAME)
 	@touch $@
 
 -include $(DEPS_SL)
