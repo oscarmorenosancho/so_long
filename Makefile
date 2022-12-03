@@ -6,11 +6,12 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/03 12:16:09 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/03 14:07:05 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
+NAMEB = ${addsuffix _bonus, $(NAME)}
 SRC_R = events.c\
 ft_check_collision.c\
 ft_check_map.c\
@@ -60,11 +61,12 @@ DEPS = $(SRC:.c=.d)
 DEPSB = $(SRCB:.c=.d)
 DEPS_SL = so_long.d
 CC	= 	gcc
-CFLAGS = -Wall -Werror -Wextra -MMD
+CFLAGS = -Wall -Werror -Wextra
+CFD = -MMD
 RM	= 	rm -f
 LIBC	= 	ar -rcs
-HEADER = src/so_long.h
-HEADERB = src_bonus/so_long_bonus.h
+HEADER = ${addprefix $(SRC_PATH), so_long.h}
+HEADERB = ${addprefix $(SRCB_PATH), so_long_bonus.h}
 LIBFT_H = libft/libft.h
 LIBFT_A = libft/libft.a
 LIBFT_D = libft/libft.d
@@ -72,21 +74,24 @@ MLX_A = mlx/libmlx.a
 LIBS_FLAGS = -lm -Lmlx -lmlx -framework OpenGL -framework AppKit
 LIBFT_D_CONT = $(shell cat ${LIBFT_D})
 
-%.o : %.c ${HEADER}
-	${CC} ${CFLAGS} -I ${HEADER} -I ${LIBFT_H} -c $< -o ${<:.c=.o}
+src/%.o : src/%.c ${HEADER}
+	${CC} ${CFLAGS} ${CFD} -I ${HEADER} -I ${LIBFT_H} -c $< -o ${<:.c=.o}
 
-all : $(NAME) 
+src_bonus/%.o : src_bonus/%.c ${HEADERB}
+	${CC} ${CFLAGS} ${CFD} -I ${HEADERB} -I ${LIBFT_H} -c $< -o ${<:.c=.o}
+
+all : $(NAME)
+bonus : $(NAMEB)
 
 -include $(DEPS) $(DEPS_SL)
-$(NAME) : ${LIBFT_A} ${MLX_A} ${OBJ} $(LIBFT_H)
-	${CC} ${CFLAGS} -I ${HEADER}  -I ${LIBFT_H} \
+$(NAME) : ${LIBFT_A} ${MLX_A} ${HEADER} $(LIBFT_H) ${OBJ}
+	${CC} ${CFLAGS} -I ${HEADER} -I ${LIBFT_H} \
 		${OBJ} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 
 -include $(DEPSB) $(DEPS_SL)
-bonus: ${LIBFT_A} ${MLX_A} ${OBJB} ${HEADERB} ${LIBFT_H}
+$(NAMEB): ${LIBFT_A} ${MLX_A} ${HEADERB} ${LIBFT_H} ${OBJB}
 	${CC} ${CFLAGS} -I ${HEADERB}  -I ${LIBFT_H} \
-		${OBJB} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $(NAME)
-	@touch $@
+		${OBJB} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 
 -include $(DEPS_SL)
 ${LIBFT_A} : ${LIBFT_D_CONT}
@@ -106,10 +111,10 @@ clean :
 	make clean -C libft
 
 fclean : clean
-	$(RM) $(NAME)
-	$(RM) bonus
 	make fclean -C libft
+	$(RM) $(NAME)
+	$(RM) $(NAMEB)
 
 re: fclean all
 
-.PHONY : clean fclean re all
+.PHONY : clean fclean re all bonus
