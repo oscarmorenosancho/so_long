@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gr_ob_class.c                                      :+:      :+:    :+:   */
+/*   fr_seq_class.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 12:45:10 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 17:22:20 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/12/05 17:09:20 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/12/05 17:22:30 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-t_gr_ob	*gr_ob_constructor(char *name, int seqs, int *frms)
+t_fr_seq	*fr_seq_constructor(char *name, int seq, int frms)
 {
-	t_gr_ob	*go;
-	char	*filenamebase;
-	int		s;
-	int		*f;
+	t_fr_seq	*fs;
+	char		*filenamebase;
+	int			f;
+	int			s;
 
-	s = seqs;
 	f = frms;
+	s = seq;
 	filenamebase = name;
-	go = malloc(sizeof(t_gr_ob));
-	if (! go)
-		return (go);
-	return (go);
+	fs = malloc(sizeof(t_fr_seq));
+	if (! fs)
+		return (fs);
+	return (fs);
 }
 
-int	dispose_gr_ob(t_gr_ob **go)
+int	dispose_fr_seq(t_fr_seq **fs)
 {
-	t_gr_ob	*lgo;
+	t_fr_seq	*lfs;
 
-	if (! go)
+	if (! fs)
 		return (0);
-	lgo = *go;
-	free_x((void **) go);
+	lfs = *fs;
+	free_x((void **)fs);
 	return (1);
 }

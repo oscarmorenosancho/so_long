@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:37:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 16:22:01 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:27:53 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,38 +206,44 @@ typedef struct s_game
 	t_game_stats	stats;
 	int				block_size[2];
 	int				pos[2];
+	int				player_seq;
 	int				exit_pos[2];
+	int				exit_seq;
+	int				frame;
 	int				exit_cmd;
 }	t_game;
 
-char	*ft_take_argument(int argc, char const *argv[]);
-t_list	*ft_read_map(char *filename);
-int		ft_check_stack(t_trail_data	*td);
-int		ft_push_trail_pos(t_trail_data *td, int *pos);
-t_table	*table_constructor(int *size);
-int		table_dispose(t_table **tab);
-t_table	*table_dup(t_table *tab);
-int		ft_create_graph_ctx(t_game *game);
-int		ft_dispose_graph_ctx(t_game *game);
-t_game	*game_constructor(char *map_file, int *block_size);
-t_game	*game_dispose(t_game **game);
-void	ft_count_map_stats(t_game *game);
-int		ft_check_map(t_game *game);
-int		ft_map_2_table(t_game *game);
-int		ft_check_trail(t_game *game);
-t_game	*ft_init_game(t_game *game);
-int		ft_extract_game_chars(t_game *game);
-t_list	*ft_findfirst_with_pos(t_list *lst, int *pos);
-t_list	*ft_check_collision(t_game *game, int *displ, int el);
-int		ft_update_pos(int keycode, t_game *game);
-int		ft_load_images(t_graphics *gr_ctx);
-int		ft_dispose_images(t_graphics *gr_ctx);
-int		ft_init_tab(t_game *game);
-int		ft_draw(t_game *game);
-int		ft_draw_game_chars(t_game *game);
-int		ft_handle_no_event(void *data);
-int		ft_close(void *param);
-int		ft_key_input(int keycode, void *param);
-void	ft_init_filenames(char **filenames);
-
+char		*ft_take_argument(int argc, char const *argv[]);
+t_list		*ft_read_map(char *filename);
+int			ft_check_stack(t_trail_data	*td);
+int			ft_push_trail_pos(t_trail_data *td, int *pos);
+t_table		*table_constructor(int *size);
+int			table_dispose(t_table **tab);
+t_table		*table_dup(t_table *tab);
+int			ft_create_graph_ctx(t_game *game);
+int			ft_dispose_graph_ctx(t_game *game);
+t_game		*game_constructor(char *map_file, int *block_size);
+t_game		*game_dispose(t_game **game);
+void		ft_count_map_stats(t_game *game);
+int			ft_check_map(t_game *game);
+int			ft_map_2_table(t_game *game);
+int			ft_check_trail(t_game *game);
+t_game		*ft_init_game(t_game *game);
+int			ft_extract_game_chars(t_game *game);
+t_list		*ft_findfirst_with_pos(t_list *lst, int *pos);
+t_list		*ft_check_collision(t_game *game, int *displ, int el);
+int			ft_update_pos(int keycode, t_game *game);
+int			ft_load_images(t_graphics *gr_ctx);
+int			ft_dispose_images(t_graphics *gr_ctx);
+int			ft_init_tab(t_game *game);
+int			ft_draw(t_game *game);
+int			ft_draw_game_chars(t_game *game);
+int			ft_handle_no_event(void *data);
+int			ft_close(void *param);
+int			ft_key_input(int keycode, void *param);
+void		ft_init_filenames(char **filenames);
+t_gr_ob		*gr_ob_constructor(char *name, int seqs, int *frms);
+int			dispose_gr_ob(t_gr_ob **go);
+t_fr_seq	*fr_seq_constructor(char *name, int seq, int frms);
+int			dispose_fr_seq(t_fr_seq **fs);
 #endif

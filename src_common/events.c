@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 10:44:35 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 10:52:44 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:02:18 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 int	ft_handle_no_event(void *data)
 {
-	static int	counter;
 	t_game		*game;
 
-	counter++;
 	if (! data)
 		return (0);
 	game = data;

@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 10:34:06 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 16:23:22 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:41:15 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int	ft_draw(t_game	*game)
 	mlx_clear_window(gr_ctx->inst, gr_ctx->wnd);
 	ft_draw_table(game);
 	ft_draw_game_chars(game);
+	game->frame++;
 	return (0);
 }

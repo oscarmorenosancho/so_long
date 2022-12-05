@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:41:52 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 12:05:06 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:51:27 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,9 @@ t_game	*ft_init_game(t_game *game)
 
 	game->collectables = NULL;
 	game->enemies = NULL;
+	game->frame = 0;
+	game->player_seq = 0;
+	game->exit_seq = 0;
 	ft_init_game_stats(game);
 	game->list = ft_read_map(game->map_file);
 	ft_init_size(game, size);

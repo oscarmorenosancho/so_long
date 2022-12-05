@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/05 14:57:14 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/05 17:15:19 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ ft_map_2_table.c\
 ft_update_pos.c\
 game_class.c\
 graph_ctx.c\
+gr_ob_class.c\
+fr_seq_class.c\
 images.c\
 ft_take_argument.c
 
