@@ -3,6 +3,6 @@
 *.o
 *.d
 *.a
-bonus
+libft/bonus
 so_long
 so_long_bonus
