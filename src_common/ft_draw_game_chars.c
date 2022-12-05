@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_draw_game_chars_bonus.c                         :+:      :+:    :+:   */
+/*   ft_draw_game_chars.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "common.h"
 
 static void	ft_draw_element(t_game *game, int *pos, int el)
 {
@@ -19,7 +19,7 @@ static void	ft_draw_element(t_game *game, int *pos, int el)
 	gr_ctx = game->gr_ctx;
 	mlx_put_image_to_window(gr_ctx->inst, gr_ctx->wnd, \
 		gr_ctx->gos[el].frms[0].ref, \
-		pos[0] * BLOCK_WIDTH, pos[1] * BLOCK_HEIGHT);
+		pos[0] * game->block_size[0], pos[1] * game->block_size[1]);
 }
 
 static void	ft_draw_collectable(unsigned int i, void *content, void *arg)

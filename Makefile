@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/03 18:04:58 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/05 11:14:28 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,8 @@ NAMEB := ${addsuffix _bonus, $(NAME)}
 
 SRCC_R:= ft_read_map.c\
 ft_check_trail_stack.c\
-table_class.c
-
-SRC_R := events.c\
+table_class.c\
+events.c\
 ft_check_collision.c\
 ft_check_map.c\
 ft_check_trail.c\
@@ -31,23 +30,11 @@ ft_update_pos.c\
 game_class.c\
 graph_ctx.c\
 images.c\
-main.c\
+ft_take_argument.c
 
-SRCB_R := events_bonus.c\
-ft_check_collision_bonus.c\
-ft_check_map_bonus.c\
-ft_check_trail_bonus.c\
-ft_count_map_stats_bonus.c\
-ft_draw_bonus.c\
-ft_draw_game_chars_bonus.c\
-ft_extract_game_chars_bonus.c\
-ft_init_tab_bonus.c\
-ft_map_2_table_bonus.c\
-ft_update_pos_bonus.c\
-game_class_bonus.c\
-graph_ctx_bonus.c\
-images_bonus.c\
-main_bonus.c\
+SRC_R := main.c
+
+SRCB_R := main.c
 
 SRCC_PATH := src_common/
 SRC_PATH := src/

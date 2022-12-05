@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 10:34:06 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 18:45:01 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 10:56:14 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 
 static void	ft_draw_table(t_game *game)
 {
@@ -26,7 +26,7 @@ static void	ft_draw_table(t_game *game)
 		while (j < game->t->size[1])
 		{
 			mlx_put_image_to_window(gr_ctx->inst, gr_ctx->wnd, \
-				gr_ctx->gos[game->t->mat[j][i]].ref, \
+				gr_ctx->gos[game->t->mat[j][i]].frms[0].ref, \
 				i * BLOCK_WIDTH, j * BLOCK_HEIGHT);
 			j++;
 		}

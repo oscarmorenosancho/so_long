@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:28:27 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 18:27:30 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 10:53:25 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 
 t_list	*ft_check_collision(t_game *game, int *displ, int el)
 {

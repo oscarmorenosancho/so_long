@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:35:33 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 12:02:41 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 10:58:32 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "common.h"
 
 int	ft_create_wnd(t_game *game)
 {

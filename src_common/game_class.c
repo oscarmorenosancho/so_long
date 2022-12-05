@@ -6,13 +6,13 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:41:52 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 11:45:10 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 11:19:15 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 
-t_game	*game_constructor(char *map_file)
+t_game	*game_constructor(char *map_file, int *block_size)
 {
 	t_game	*game;
 
@@ -81,8 +81,8 @@ t_game	*ft_init_game(t_game *game)
 	ft_init_game_stats(game);
 	game->list = ft_read_map(game->map_file);
 	ft_init_size(game, size);
-	if (size[0] * BLOCK_WIDTH >= DISP_WIDTH || \
-		size[1] * BLOCK_HEIGHT >= DISP_HEIGHT)
+	if (size[0] * game->block_size[0] >= DISP_WIDTH || \
+		size[1] * game->block_size[1] >= DISP_HEIGHT)
 	{
 		ft_log_error("Map size exceeds the display resolution\n");
 		game_dispose(&game);

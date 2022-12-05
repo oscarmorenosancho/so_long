@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 10:44:35 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 11:47:13 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 10:52:44 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 
 int	ft_handle_no_event(void *data)
 {

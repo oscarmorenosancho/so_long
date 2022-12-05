@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:05:36 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 11:44:34 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 10:54:49 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 
 static void	ft_init_stats(t_game_stats *game_stats)
 {

@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:11:29 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 18:27:30 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 10:57:53 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 #include <math.h>
 
 static int	ft_rand(int min_num, int max_num)
