@@ -18,7 +18,7 @@ static void	ft_draw_element(t_game *game, int *pos, int el)
 
 	gr_ctx = game->gr_ctx;
 	mlx_put_image_to_window(gr_ctx->inst, gr_ctx->wnd, \
-		gr_ctx->gos[el].frms[0].ref, \
+		gr_ctx->gos[el].seqs[0].frms[0].ref, \
 		pos[0] * game->block_size[0], pos[1] * game->block_size[1]);
 }
 

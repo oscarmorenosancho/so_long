@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:37:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 14:52:22 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:22:01 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,10 +151,16 @@ typedef struct s_image
 	int		size[2];
 }	t_image;
 
-typedef struct s_gr_ob
+typedef struct s_fr_seq
 {
 	t_image	frms[10];
 	int		count;
+}	t_fr_seq;
+
+typedef struct s_gr_ob
+{
+	t_fr_seq	seqs[10];
+	int			count;
 }	t_gr_ob;
 
 typedef struct s_game_stats

@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 10:34:06 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 12:03:17 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:23:22 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_draw_table(t_game *game)
 		while (j < game->t->size[1])
 		{
 			mlx_put_image_to_window(gr_ctx->inst, gr_ctx->wnd, \
-				gr_ctx->gos[game->t->mat[j][i]].frms[0].ref, \
+				gr_ctx->gos[game->t->mat[j][i]].seqs[0].frms[0].ref, \
 				i * game->block_size[0], j * game->block_size[1]);
 			j++;
 		}
