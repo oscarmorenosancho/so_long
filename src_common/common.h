@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:37:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 11:13:00 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:52:22 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,4 +232,6 @@ int		ft_draw_game_chars(t_game *game);
 int		ft_handle_no_event(void *data);
 int		ft_close(void *param);
 int		ft_key_input(int keycode, void *param);
+void	ft_init_filenames(char **filenames);
+
 #endif

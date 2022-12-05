@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:33:11 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 10:58:41 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:54:50 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,6 @@ static void	ft_init_img_null(t_graphics *gr_ctx)
 	i = 0;
 	while (i < MAX_GO)
 		gr_ctx->gos[i++].frms[0].ref = NULL;
-}
-
-static void	ft_init_filenames(char **filenames)
-{
-	filenames[GO_GROUND] = "xpm/Ground001.xpm";
-	filenames[GO_WALL] = "xpm/Wall001.xpm";
-	filenames[GO_EXIT] = "xpm/Exit001.xpm";
-	filenames[GO_PLAYER] = "xpm/Man001.xpm";
-	filenames[GO_COLLECT] = "xpm/Key001.xpm";
-	filenames[GO_ENEMY] = "xpm/Snake001.xpm";
-	filenames[GO_BLOCK1] = "xpm/Block001.xpm";
-	filenames[GO_BLOCK2] = "xpm/Block002.xpm";
 }
 
 int	ft_load_images(t_graphics *gr_ctx)

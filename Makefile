@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/05 11:14:28 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/05 14:57:14 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,9 +32,11 @@ graph_ctx.c\
 images.c\
 ft_take_argument.c
 
-SRC_R := main.c
+SRC_R := main.c\
+ft_init_filenames.c
 
-SRCB_R := main.c
+SRCB_R := main_bonus.c\
+ft_init_filenames_bonus.c
 
 SRCC_PATH := src_common/
 SRC_PATH := src/
