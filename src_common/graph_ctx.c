@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:35:33 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 10:58:32 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/05 12:05:53 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	ft_create_graph_ctx(t_game *game)
 		ft_log_error("Malloc failed while constructing graphic context\n");
 		return (0);
 	}
-	gr_ctx->wnd_size[0] = game->t->size[0] * BLOCK_WIDTH;
-	gr_ctx->wnd_size[1] = game->t->size[1] * BLOCK_HEIGHT;
+	gr_ctx->wnd_size[0] = game->t->size[0] * game->block_size[0];
+	gr_ctx->wnd_size[1] = game->t->size[1] * game->block_size[0];
 	gr_ctx->inst = mlx_init();
 	if (! gr_ctx->inst)
 		return (0);
