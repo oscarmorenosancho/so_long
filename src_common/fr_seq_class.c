@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 17:09:20 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 15:24:30 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:10:41 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int	fr_seq_dispose(t_fr_seq **fs)
 		image_dispose(&lfs->frms[i]);
 		i++;
 	}
+	free_x((void **)&lfs->frms);
 	free_x((void **)fs);
 	return (1);
 }

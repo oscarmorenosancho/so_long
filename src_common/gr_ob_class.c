@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 12:45:10 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 15:46:30 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:12:34 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	gr_ob_dispose(t_gr_ob **go)
 		fr_seq_dispose(&lgo->seqs[i]);
 		i++;
 	}
+	free_x((void **)&lgo->seqs);
 	free_x((void **) go);
 	return (1);
 }
