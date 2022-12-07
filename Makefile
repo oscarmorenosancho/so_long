@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/06 18:23:51 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/07 16:01:31 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ ft_draw_game_chars.c\
 ft_extract_game_chars.c\
 ft_init_tab.c\
 ft_map_2_table.c\
+ft_update_player_seq.c\
 ft_update_pos.c\
 game_class.c\
 graph_ctx.c\

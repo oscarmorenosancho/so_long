@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:14:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 13:07:57 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/07 15:45:47 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@ static char	*ft_fn(int el)
 {
 	if (el == GO_WALL)
 		return ("xpm/bonus/wall/s");
-	if (el == GO_BLOCK1)
-		return ("xpm/bonus/block1/s");
-	if (el == GO_BLOCK2)
-		return ("xpm/bonus/block2/s");
 	if (el == GO_COLLECT)
 		return ("xpm/bonus/collect/s");
 	if (el == GO_ENEMY)
@@ -38,8 +34,6 @@ void	ft_init_gr_ob_list(t_graphics *gr_ctx, t_gr_ob **gr_ob_arr)
 	frms[0] = 1;
 	gr_ob_arr[GO_GROUND] = gr_ob_constructor(gr_ctx, ft_fn(GO_GROUND), 1, frms);
 	gr_ob_arr[GO_WALL] = gr_ob_constructor(gr_ctx, ft_fn(GO_WALL), 1, frms);
-	gr_ob_arr[GO_BLOCK1] = gr_ob_constructor(gr_ctx, ft_fn(GO_BLOCK1), 1, frms);
-	gr_ob_arr[GO_BLOCK2] = gr_ob_constructor(gr_ctx, ft_fn(GO_BLOCK2), 1, frms);
 	frms[0] = 8;
 	gr_ob_arr[GO_COLLECT] = gr_ob_constructor(gr_ctx, ft_fn(GO_COLLECT), \
 		1, frms);

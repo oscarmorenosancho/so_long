@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:35:39 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 10:58:13 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:18:24 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ static int	ft_check_interactions(t_game *game, int *displ)
 	}
 	if (collectable)
 		ft_lstdeletenode(&game->collectables, collectable);
+	if (! game->collectables && game->gr_ctx->gos[GO_EXIT]->count > 1)
+		game->exit_seq = 1;
 	return (enemy != NULL || ft_check_dest(game, displ, GO_WALL));
 }
 
@@ -87,6 +89,7 @@ int	ft_update_pos(int keycode, t_game *game)
 		displ[1] = -1;
 	else if (keycode == KC_DOWN || keycode == KC_S)
 		displ[1] = 1;
+	ft_update_player_seq(displ, game);
 	if (ft_check_interactions(game, displ))
 		return (displ[0] || displ[1]);
 	game->pos[0] += displ[0];

@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:35:33 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 12:37:27 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:48:43 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	ft_create_graph_ctx(t_game *game)
 
 int	ft_dispose_graph_ctx(t_game *game)
 {
+	ft_putstr_fd("start Dipose gr ctx\n", 1);
 	if (! game || ! game->gr_ctx)
 		return (0);
 	if (game->gr_ctx->inst)
@@ -73,5 +74,6 @@ int	ft_dispose_graph_ctx(t_game *game)
 		gr_ob_list_dispose(&game->gr_ctx->gos);
 	}
 	free_x((void **)&game->gr_ctx);
+	ft_putstr_fd("end Dipose gr ctx\n", 1);
 	return (0);
 }

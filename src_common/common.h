@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:37:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/06 18:16:30 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:03:57 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stddef.h>
-# define MAX_GO			8
+# define MAX_GO			6
 # define DISP_WIDTH		2600
 # define DISP_HEIGHT	1360
 
@@ -233,6 +233,7 @@ t_game		*ft_init_game(t_game *game);
 int			ft_extract_game_chars(t_game *game);
 t_list		*ft_findfirst_with_pos(t_list *lst, int *pos);
 t_list		*ft_check_collision(t_game *game, int *displ, int el);
+void		ft_update_player_seq(int *displ, t_game *game);
 int			ft_update_pos(int keycode, t_game *game);
 int			ft_load_images(t_graphics *gr_ctx);
 int			ft_dispose_images(t_graphics *gr_ctx);

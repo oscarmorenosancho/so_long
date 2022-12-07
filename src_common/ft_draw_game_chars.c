@@ -16,15 +16,19 @@ static void	ft_draw_element(t_game *game, int *pos, int el)
 {
 	t_graphics	*gr_ctx;
 	int			seq;
+	int			frame;
 
 	seq = 0;
 	gr_ctx = game->gr_ctx;
-	if (el == GO_PLAYER && (gr_ctx->gos[GO_PLAYER]->count) > 0)
+	frame = 0;
+	if (el == GO_PLAYER && (gr_ctx->gos[el]->count) > game->player_seq)
 		seq = game->player_seq;
-	else if (el == GO_EXIT)
+	else if (el == GO_EXIT && (gr_ctx->gos[el]->count) > game->exit_seq)
 		seq = game->exit_seq;
+	if (gr_ctx->gos[el]->seqs[seq]->count > 0)
+		frame = (game->frame / 16) % gr_ctx->gos[el]->seqs[seq]->count;
 	mlx_put_image_to_window(gr_ctx->inst, gr_ctx->wnd, \
-		gr_ob_get_img_ref(gr_ctx->gos[el], seq, 0), \
+		gr_ob_get_img_ref(gr_ctx->gos[el], seq, frame), \
 		pos[0] * game->block_size[0], pos[1] * game->block_size[1]);
 }
 
