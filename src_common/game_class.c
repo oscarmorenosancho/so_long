@@ -6,13 +6,13 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:41:52 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 15:05:13 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:34:22 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-t_game	*game_constructor(char *map_file, int *block_size)
+t_game	*game_constructor(char *map_file, int *block_size, int allow_enemies)
 {
 	t_game	*game;
 
@@ -25,6 +25,7 @@ t_game	*game_constructor(char *map_file, int *block_size)
 		game->gr_ctx = NULL;
 		game->block_size[0] = block_size[0];
 		game->block_size[1] = block_size[1];
+		game->allow_enemies = allow_enemies;
 		game = ft_init_game(game);
 	}
 	else

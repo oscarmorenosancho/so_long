@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_map_bonus.c                               :+:      :+:    :+:   */
+/*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:23:51 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 10:53:36 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:37:15 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ static int	ft_check_stats(t_game *game)
 		return (ft_log_error("More than one exit found on map\n") && 0);
 	if (game->stats.collectables < 1)
 		return (ft_log_error("No collectable found on map\n") && 0);
-	if (game->stats.invalids > 0)
+	if (game->stats.invalids > 0 || \
+		(! game->allow_enemies && game->stats.enemies > 0))
 		return (ft_log_error("Invalid chars found on map\n") && 0);
 	return (1);
 }

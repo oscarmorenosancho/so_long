@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:37:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 16:03:57 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:34:01 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,6 +212,7 @@ typedef struct s_game
 	int				exit_seq;
 	int				frame;
 	int				exit_cmd;
+	int				allow_enemies;
 }	t_game;
 
 char		*ft_take_argument(int argc, char const *argv[]);
@@ -223,7 +224,8 @@ int			table_dispose(t_table **tab);
 t_table		*table_dup(t_table *tab);
 int			ft_create_graph_ctx(t_game *game);
 int			ft_dispose_graph_ctx(t_game *game);
-t_game		*game_constructor(char *map_file, int *block_size);
+t_game		*game_constructor(char *map_file, int *block_size, \
+			int allow_enemies);
 t_game		*game_dispose(t_game **game);
 void		ft_count_map_stats(t_game *game);
 int			ft_check_map(t_game *game);
