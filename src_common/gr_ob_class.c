@@ -6,35 +6,52 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 12:45:10 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 17:22:20 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/07 13:55:35 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-t_gr_ob	*gr_ob_constructor(char *name, int seqs, int *frms)
+t_gr_ob	*gr_ob_constructor(t_graphics *gr_ctx, \
+		char *name, int seqs, int *frms)
 {
 	t_gr_ob	*go;
-	char	*filenamebase;
-	int		s;
-	int		*f;
+	int		i;
 
-	s = seqs;
-	f = frms;
-	filenamebase = name;
-	go = malloc(sizeof(t_gr_ob));
+	if (seqs < 1)
+		return (NULL);
+	go = ft_calloc(1, sizeof(t_gr_ob));
 	if (! go)
 		return (go);
+	go->count = seqs;
+	go->seqs = ft_calloc(seqs, sizeof(t_fr_seq *));
+	if (! go->seqs)
+		gr_ob_dispose(&go);
+	i = 0;
+	while (i < seqs && go)
+	{
+		go->seqs[i] = fr_seq_constructor(gr_ctx, name, i, frms[i]);
+		if (! go->seqs[i])
+			gr_ob_dispose(&go);
+		i++;
+	}
 	return (go);
 }
 
-int	dispose_gr_ob(t_gr_ob **go)
+int	gr_ob_dispose(t_gr_ob **go)
 {
 	t_gr_ob	*lgo;
+	int		i;
 
 	if (! go)
 		return (0);
 	lgo = *go;
+	i = 0;
+	while (i < lgo->count)
+	{
+		fr_seq_dispose(&lgo->seqs[i]);
+		i++;
+	}
 	free_x((void **) go);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:33:11 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 16:28:12 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:58:17 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,26 @@ static void	ft_init_img_null(t_graphics *gr_ctx)
 
 	i = 0;
 	while (i < MAX_GO)
-		gr_ctx->gos[i++].seqs[0].frms[0].ref = NULL;
+		gr_ob_set_img_ref(gr_ctx->gos[i++], 0, 0, NULL);
 }
 
 int	ft_load_images(t_graphics *gr_ctx)
 {
 	char	*filenames[MAX_GO];
 	int		i;
+	int		*size;
+	void	*ref;
 
 	ft_init_img_null(gr_ctx);
 	ft_init_filenames(filenames);
 	i = 0;
 	while (i < MAX_GO)
 	{
-		gr_ctx->gos[i].seqs[0].frms[0].ref = \
-			mlx_xpm_file_to_image(gr_ctx->inst, \
-			filenames[i], &gr_ctx->gos[i].seqs[0].frms[0].size[0], \
-			&gr_ctx->gos[i].seqs[0].frms[0].size[1]);
-		if (! gr_ctx->gos[i].seqs[0].frms[0].ref)
+		size = gr_ob_get_img_size(gr_ctx->gos[i], 0, 0);
+		ref = mlx_xpm_file_to_image(gr_ctx->inst, \
+			filenames[i], &size[0], &size[1]);
+		gr_ob_set_img_ref(gr_ctx->gos[i], 0, 0, ref);
+		if (! ref)
 		{
 			ft_dispose_images(gr_ctx);
 			return (0);
@@ -48,15 +50,16 @@ int	ft_load_images(t_graphics *gr_ctx)
 int	ft_dispose_images(t_graphics *gr_ctx)
 {
 	int		i;
+	void	*ref;
 
 	i = 0;
 	while (i < MAX_GO)
 	{
-		if (gr_ctx->gos[i].seqs[0].frms[0].ref)
+		ref = gr_ob_get_img_ref(gr_ctx->gos[i], 0, 0);
+		if (ref)
 		{
-			mlx_destroy_image (gr_ctx->inst, \
-				gr_ctx->gos[i].seqs[0].frms[0].ref);
-			gr_ctx->gos[i].seqs[0].frms[0].ref = 0;
+			mlx_destroy_image (gr_ctx->inst, ref);
+			gr_ob_set_img_ref (gr_ctx->gos[i], 0, 0, NULL);
 		}
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:37:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 17:27:53 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:16:30 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,19 +147,20 @@ enum e_gr_ob_refs
 
 typedef struct s_image
 {
-	void	*ref;
-	int		size[2];
+	void		*gr_ctx;
+	void		*ref;
+	int			size[2];
 }	t_image;
 
 typedef struct s_fr_seq
 {
-	t_image	frms[10];
+	t_image	**frms;
 	int		count;
 }	t_fr_seq;
 
 typedef struct s_gr_ob
 {
-	t_fr_seq	seqs[10];
+	t_fr_seq	**seqs;
 	int			count;
 }	t_gr_ob;
 
@@ -192,7 +193,7 @@ typedef struct s_graphics
 	void	*inst;
 	void	*wnd;
 	int		wnd_size[2];
-	t_gr_ob	gos[MAX_GO];
+	t_gr_ob	**gos;
 }	t_graphics;
 
 typedef struct s_game
@@ -242,8 +243,22 @@ int			ft_handle_no_event(void *data);
 int			ft_close(void *param);
 int			ft_key_input(int keycode, void *param);
 void		ft_init_filenames(char **filenames);
-t_gr_ob		*gr_ob_constructor(char *name, int seqs, int *frms);
-int			dispose_gr_ob(t_gr_ob **go);
-t_fr_seq	*fr_seq_constructor(char *name, int seq, int frms);
-int			dispose_fr_seq(t_fr_seq **fs);
+t_gr_ob		*gr_ob_constructor(t_graphics *gr_ctx, \
+				char *name, int seqs, int *frms);
+int			gr_ob_dispose(t_gr_ob **go);
+void		*gr_ob_get_img_ref(t_gr_ob *gr_ob, int seq, int frm);
+int			*gr_ob_get_img_size(t_gr_ob *gr_ob, int seq, int frm);
+void		gr_ob_set_img_ref(t_gr_ob *gr_ob, int seq, int frm, void *ref);
+t_fr_seq	*fr_seq_constructor(t_graphics *gr_ctx, char *name, \
+			int seq, int frms);
+int			fr_seq_dispose(t_fr_seq **fs);
+void		*fr_seq_get_img_ref(t_fr_seq *fr_seq, int frm);
+int			*fr_seq_get_img_size(t_fr_seq *fr_seq, int frm);
+void		fr_seq_set_img_ref(t_fr_seq *fr_seq, int frm, void *ref);
+t_gr_ob		**gr_ob_list_constructor(t_graphics *gr_ctx);
+int			gr_ob_list_dispose(t_gr_ob	***gr_ob_arr);
+t_image		*image_constructor(t_graphics *gr_ctx, char *filename);
+int			image_dispose(t_image **img);
+void		ft_init_gr_ob_list(t_graphics *gr_ctx, t_gr_ob **gr_ob_arr);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:35:33 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 12:05:53 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/07 12:37:27 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,10 @@ int	ft_create_graph_ctx(t_game *game)
 	gr_ctx->inst = mlx_init();
 	if (! gr_ctx->inst)
 		return (0);
+	gr_ctx->gos = gr_ob_list_constructor(gr_ctx);
+	if (! gr_ctx->gos)
+		return (0);
 	mlx_loop_hook(game->gr_ctx->inst, &ft_handle_no_event, game);
-	if (! ft_load_images(game->gr_ctx))
-		return (1);
 	return (ft_create_wnd(game));
 }
 
@@ -69,7 +70,7 @@ int	ft_dispose_graph_ctx(t_game *game)
 			mlx_destroy_window (game->gr_ctx->inst, game->gr_ctx->wnd);
 			game->gr_ctx->wnd = NULL;
 		}
-		ft_dispose_images(game->gr_ctx);
+		gr_ob_list_dispose(&game->gr_ctx->gos);
 	}
 	free_x((void **)&game->gr_ctx);
 	return (0);

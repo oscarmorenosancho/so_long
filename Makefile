@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/05 17:15:19 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/06 18:23:51 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,14 +30,20 @@ ft_update_pos.c\
 game_class.c\
 graph_ctx.c\
 gr_ob_class.c\
+gr_ob_class2.c\
+gr_ob_list_class.c\
 fr_seq_class.c\
+fr_seq_class2.c\
 images.c\
+image_class.c\
 ft_take_argument.c
 
 SRC_R := main.c\
+ft_init_gr_ob_list.c\
 ft_init_filenames.c
 
 SRCB_R := main_bonus.c\
+ft_init_gr_ob_list_bonus.c\
 ft_init_filenames_bonus.c
 
 SRCC_PATH := src_common/

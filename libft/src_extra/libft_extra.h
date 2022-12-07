@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:17:34 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 17:33:41 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/06 16:54:33 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,5 @@ void	ft_lstdeletenode(t_list **lst, t_list *node);
 void	ft_copy_pos(int *dst, int *src);
 int		*ft_dup_pos(int *src);
 t_list	*ft_findfirst_with_pos(t_list *lst, int *pos);
+char	*ft_str_merge(char **s1, char **s2);
 #endif
