@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:37:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 17:01:05 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:41:24 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,15 +239,11 @@ t_list		*ft_findfirst_with_pos(t_list *lst, int *pos);
 t_list		*ft_check_collision(t_game *game, int *displ, int el);
 void		ft_update_player_seq(int *displ, t_game *game);
 int			ft_update_pos(int keycode, t_game *game);
-int			ft_load_images(t_graphics *gr_ctx);
-int			ft_dispose_images(t_graphics *gr_ctx);
-int			ft_init_tab(t_game *game);
 int			ft_draw(t_game *game);
 int			ft_draw_game_chars(t_game *game);
 int			ft_handle_no_event(void *data);
 int			ft_close(void *param);
 int			ft_key_input(int keycode, void *param);
-void		ft_init_filenames(char **filenames);
 t_gr_ob		*gr_ob_constructor(t_graphics *gr_ctx, \
 				char *name, int seqs, int *frms);
 int			gr_ob_dispose(t_gr_ob **go);

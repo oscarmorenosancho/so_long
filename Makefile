@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/07 16:01:31 by omoreno-         ###   ########.fr        #
+#    Updated: 2022/12/07 18:38:42 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ ft_count_map_stats.c\
 ft_draw.c\
 ft_draw_game_chars.c\
 ft_extract_game_chars.c\
-ft_init_tab.c\
 ft_map_2_table.c\
 ft_update_player_seq.c\
 ft_update_pos.c\
@@ -35,17 +34,14 @@ gr_ob_class2.c\
 gr_ob_list_class.c\
 fr_seq_class.c\
 fr_seq_class2.c\
-images.c\
 image_class.c\
 ft_take_argument.c
 
 SRC_R := main.c\
-ft_init_gr_ob_list.c\
-ft_init_filenames.c
+ft_init_gr_ob_list.c
 
 SRCB_R := main_bonus.c\
-ft_init_gr_ob_list_bonus.c\
-ft_init_filenames_bonus.c
+ft_init_gr_ob_list_bonus.c
 
 SRCC_PATH := src_common/
 SRC_PATH := src/
