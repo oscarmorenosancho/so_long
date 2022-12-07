@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:35:39 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 16:18:24 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/07 17:31:19 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	ft_print_movements(int movements)
 {
 	ft_putstr_fd("Movements: ", 1);
-	ft_putnbr_fd(movements++, 1);
+	ft_putnbr_fd(movements, 1);
 	ft_putstr_fd("\r", 1);
 }
 
@@ -74,7 +74,6 @@ static int	ft_check_interactions(t_game *game, int *displ)
 
 int	ft_update_pos(int keycode, t_game *game)
 {
-	static int	movements;
 	int			displ[2];
 
 	if (! game)
@@ -94,7 +93,8 @@ int	ft_update_pos(int keycode, t_game *game)
 		return (displ[0] || displ[1]);
 	game->pos[0] += displ[0];
 	game->pos[1] += displ[1];
-	if (displ[0] || displ[1])
-		ft_print_movements(++movements);
+	game->movements++;
+	if ((displ[0] || displ[1]) && ! game->movs_on_gr)
+		ft_print_movements(game->movements);
 	return (displ[0] || displ[1]);
 }
