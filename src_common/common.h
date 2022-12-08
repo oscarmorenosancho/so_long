@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:37:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 18:41:24 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/08 11:30:08 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,7 +238,10 @@ int			ft_extract_game_chars(t_game *game);
 t_list		*ft_findfirst_with_pos(t_list *lst, int *pos);
 t_list		*ft_check_collision(t_game *game, int *displ, int el);
 void		ft_update_player_seq(int *displ, t_game *game);
+int			ft_check_pos(t_game *game, int *pos, int el);
+int			ft_check_dest(t_game *game, int *displ, int el);
 int			ft_update_pos(int keycode, t_game *game);
+void		ft_update_enemies(t_game *game);
 int			ft_draw(t_game *game);
 int			ft_draw_game_chars(t_game *game);
 int			ft_handle_no_event(void *data);

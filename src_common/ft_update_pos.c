@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:35:39 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 17:31:19 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:36:16 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,6 @@ static void	ft_print_movements(int movements)
 	ft_putstr_fd("Movements: ", 1);
 	ft_putnbr_fd(movements, 1);
 	ft_putstr_fd("\r", 1);
-}
-
-static int	ft_check_dest(t_game *game, int *displ, int el)
-{
-	int			dest_pos[2];
-
-	if (! game)
-		return (0);
-	dest_pos[0] = game->pos[0] + displ[0];
-	dest_pos[1] = game->pos[1] + displ[1];
-	if (dest_pos[0] < 0 || dest_pos[0] > game->t->size[0] || \
-		dest_pos[1] < 0 || dest_pos[1] > game->t->size[1])
-		return (0);
-	return (game->t->mat[dest_pos[1]][dest_pos[0]] == el);
 }
 
 static int	ft_check_exit(t_game *game, int *displ)

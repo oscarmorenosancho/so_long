@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:47:03 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 17:50:54 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:29:46 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,16 @@ int	*ft_dup_pos(int *src)
 	if (dst)
 		ft_copy_pos(dst, src);
 	return (dst);
+}
+
+void	ft_set_pos(int *pos, int x, int y)
+{
+	pos[0] = x;
+	pos[1] = y;
+}
+
+void	ft_add_pos(int *pos, int *displ)
+{
+	pos[0] += displ[0];
+	pos[1] += displ[1];
 }
