@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
+#    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/06 16:52:14 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/04/17 10:27:36 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,7 +115,7 @@ X_HP := $(addprefix $(LIBFT_PATH), $(X_H))
 HEADER_FP := $(addprefix $(LIBFT_PATH), $(HEADER)) 
 
 %.o : %.c ${HEADER}
-	${CC} ${CFLAGS} -I ${HEADER} -c $< -o $@
+	${CC} ${CFLAGS} -c $< -o $@
 
 all : $(NAME)
 

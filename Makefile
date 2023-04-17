@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+         #
+#    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2022/12/08 11:12:06 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/04/17 10:31:18 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,25 +77,25 @@ LIBS_FLAGS := -lm -Lmlx -lmlx -framework OpenGL -framework AppKit -I ${LIBFT_H} 
 LIBFT_D_CONT := $(shell cat ${LIBFT_D})
 
 src/%.o : src/%.c ${HEADER}
-	${CC} ${CFLAGS} ${CFD} -I ${HEADER} -I ${LIBFT_H} -I ${MLX_H} -c $< -o $@
+	${CC} ${CFLAGS} ${CFD} -I ${LIBFT_PATH} -I ${MLX_PATH} -c $< -o $@
 
 src_common/%.o : src_common/%.c ${HEADERC}
-	${CC} ${CFLAGS} ${CFD} -I ${HEADERC} -I ${LIBFT_H} -I ${MLX_H} -c $< -o $@
+	${CC} ${CFLAGS} ${CFD} -I ${LIBFT_PATH} -I ${MLX_PATH} -c $< -o $@
 
 src_bonus/%.o : src_bonus/%.c ${HEADERB}
-	${CC} ${CFLAGS} ${CFD} -I ${HEADERB} -I ${LIBFT_H} -I ${MLX_H} -c $< -o $@
+	${CC} ${CFLAGS} ${CFD} -I ${LIBFT_PATH} -I ${MLX_PATH} -c $< -o $@
 
 all : $(NAME)
 bonus : $(NAMEB)
 
 -include $(DEPS)
 $(NAME) : ${LIBFT_A} ${MLX_A} ${OBJC} ${OBJ} 
-	${CC} ${CFLAGS} -I ${HEADER} \
+	${CC} ${CFLAGS} \
 		${OBJC} ${OBJ} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 
 -include $(DEPSB)
 $(NAMEB): ${LIBFT_A} ${MLX_A} ${OBJC} ${OBJB}
-	${CC} ${CFLAGS} -I ${HEADERB} \
+	${CC} ${CFLAGS} \
 		${OBJC} ${OBJB} ${LIBFT_A} ${MLX_A} ${LIBS_FLAGS} -o $@
 
 ${LIBFT_A} : ${LIBFT_D_CONT}
