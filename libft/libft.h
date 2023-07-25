@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:30:16 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 17:50:01 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/07/25 10:10:19 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "get_next_line/get_next_line.h"
-# include "src/libft_mand.h"
-# include "src_bonus/libft_bonus.h"
-# include "src_extra/libft_extra.h"
+# include "../libft/src/get_next_line/get_next_line.h"
+# include "../libft/src/mand/libft_mand.h"
+# include "../libft/src/lst/libft_bonus.h"
+# include "../libft/src/extra/libft_extra.h"
 #endif

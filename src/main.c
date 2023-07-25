@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:36:40 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/08 13:01:34 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/07/25 09:51:03 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	main(int argc, char const *argv[])
 
 	block_size[0] = BLOCK_WIDTH;
 	block_size[1] = BLOCK_HEIGHT;
-	allow_enemies = 0;
-	movs_on_gr = 0;
+	allow_enemies = 1;
+	movs_on_gr = 1;
 	game = game_constructor(ft_take_argument(argc, argv), \
 		block_size, allow_enemies, movs_on_gr);
 	if (game)

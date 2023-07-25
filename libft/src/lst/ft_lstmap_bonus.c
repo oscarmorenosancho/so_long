@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:56:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 13:21:12 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/07/24 10:47:18 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static t_list	*ft_appendnewnode(t_list *newnode, t_list *newlistlast, \
 	{
 		newlistlast = ft_lstlast(*newlist);
 		if (newlistlast)
-		newlistlast->next = newnode;
+			newlistlast->next = newnode;
 	}
 	return (newnode);
 }

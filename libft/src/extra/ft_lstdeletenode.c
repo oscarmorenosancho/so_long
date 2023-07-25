@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstrreduce.c                                    :+:      :+:    :+:   */
+/*   ft_lstdeletenode.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 16:09:28 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 17:45:16 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/11/28 17:10:36 by omoreno-          #+#    #+#             */
+/*   Updated: 2023/07/23 17:06:14 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_extra.h"
 
-void	ft_lstreduce(t_list *lst, \
-		void (*f)(unsigned int, void *, void *), void *arg)
+static int	ft_eqnode(unsigned int i, t_list *lst, void *lst2)
 {
-	t_list			*cur;
-	unsigned int	i;
+	(void)i;
+	return (lst == lst2);
+}
 
-	cur = lst;
-	i = 0;
-	if (f && arg)
-	{
-		while (cur)
-		{	
-			(*f)(i, (void *)cur->content, arg);
-			cur = cur->next;
-			i++;
-		}
-	}
+void	ft_lstdeletenode(t_list **lst, t_list *node)
+{
+	ft_lstdeletewhere(lst, &ft_eqnode, &free, node);
 }

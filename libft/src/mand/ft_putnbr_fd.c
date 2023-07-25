@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:17:32 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 12:30:16 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/07/21 13:33:14 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft_mand.h"
 
 static char	ft_get_last_digit(unsigned int *n, unsigned int base)
 {

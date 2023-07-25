@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_extra.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:17:34 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/08 12:30:01 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/07/21 13:16:15 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "../libft.h"
+# include "../../libft.h"
 
 int		ft_log_error(char *msg);
 size_t	ft_linelen(const char *s);

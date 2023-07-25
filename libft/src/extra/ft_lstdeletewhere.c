@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdeletewhere.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:44:20 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 17:44:19 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/07/24 10:46:22 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_lstdeletewhere(t_list **lst, \
 	if (! is || ! arg)
 		return ;
 	while (cur)
-	{	
+	{
 		if ((*is)(i, cur, arg))
 		{
 			if (prev)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstevery.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:58:24 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 17:44:34 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/07/24 10:46:32 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_lstevery(t_list *lst, int (*f)(void *, void *), void *arg)
 	if (f)
 	{
 		while (cur && ok)
-		{	
+		{
 			ok = (*f)((void *)cur->content, arg);
 			cur = cur->next;
 		}

@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2023/04/17 10:27:36 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/07/24 17:13:09 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,78 +73,76 @@ SRCX := ft_copy_pos.c\
 	ft_strreduce.c\
 	ft_str_merge.c
 
-LIBFT_PATH := libft/
-SRC_PATH := src/
-BONUS_PATH := src_bonus/
-GNL_PATH := get_next_line/
-X_PATH := src_extra/
+LIBFT_PATH	:= libft/
+SRC_PATH	:= src/
+MAND_PATH	:= $(addprefix $(SRC_PATH), mand/)
+BONUS_PATH	:= $(addprefix $(SRC_PATH), lst/)
+GNL_PATH	:= $(addprefix $(SRC_PATH), get_next_line/)
+X_PATH		:= $(addprefix $(SRC_PATH), extra/)
+BUILD_PATH	:= build/
 
-SRC_F := $(addprefix $(SRC_PATH), $(SRC))
-SRCB_F := $(addprefix $(BONUS_PATH), $(SRCB))
-SRCGNL_F := $(addprefix $(GNL_PATH), $(SRCGNL))
-SRCX_F := $(addprefix $(X_PATH), $(SRCX))
+SRCM_F		:= $(addprefix $(MAND_PATH), $(SRC))
+SRCB_F		:= $(addprefix $(BONUS_PATH), $(SRCB))
+SRCGNL_F	:= $(addprefix $(GNL_PATH), $(SRCGNL))
+SRCX_F		:= $(addprefix $(X_PATH), $(SRCX))
 
-SRC_FP := $(addprefix $(LIBFT_PATH), $(SRC_F))
-SRCB_FP := $(addprefix $(LIBFT_PATH), $(SRCB_F))
-SRCGNL_FP := $(addprefix $(LIBFT_PATH), $(SRCGNL_F))
-SRCX_FP := $(addprefix $(LIBFT_PATH), $(SRCX_F))
+SRCM_FP		:= $(addprefix $(LIBFT_PATH), $(SRCM_F))
+SRCB_FP		:= $(addprefix $(LIBFT_PATH), $(SRCB_F))
+SRCGNL_FP	:= $(addprefix $(LIBFT_PATH), $(SRCGNL_F))
+SRCX_FP		:= $(addprefix $(LIBFT_PATH), $(SRCX_F))
 
-OBJ := $(SRC_F:.c=.o)
-OBJB := $(SRCB_F:.c=.o)
-OBJGNL := $(SRCGNL_F:.c=.o)
-OBJX := $(SRCX_F:.c=.o)
+OBJM		:= $(addprefix $(BUILD_PATH),$(SRCM_F:.c=.o))
+OBJB		:= $(addprefix $(BUILD_PATH),$(SRCB_F:.c=.o))
+OBJGNL		:= $(addprefix $(BUILD_PATH),$(SRCGNL_F:.c=.o))
+OBJX		:= $(addprefix $(BUILD_PATH),$(SRCX_F:.c=.o))
 
-DEPS := $(SRC_F:.c=.d)
-DEPSB := $(SRCB_F:.c=.d)
-DEPSGNL := $(SRCGNL_F:.c=.d)
-DEPSX := $(SRCX_F:.c=.d)
+DEPSM		:= $(addprefix $(BUILD_PATH),$(SRCM_F:.c=.d))
+DEPSB		:= $(addprefix $(BUILD_PATH),$(SRCB_F:.c=.d))
+DEPSGNL		:= $(addprefix $(BUILD_PATH),$(SRCGNL_F:.c=.d))
+DEPSX		:= $(addprefix $(BUILD_PATH),$(SRCX_F:.c=.d))
 
-CC	:= 	gcc
-CFLAGS := -Wall -Werror -Wextra -MMD
-RM	:= 	rm -f
-LIBC	:= 	ar -rcs
-HEADER := libft.h 
-MAND_H := $(addprefix $(SRC_PATH), libft_mand.h)
-BONUS_H := $(addprefix $(BONUS_PATH), libft_bonus.h)
-GNL_H := $(addprefix $(GNL_PATH), get_next_line.h)
-X_H := $(addprefix $(X_PATH), libft_extra.h)
-MAND_HP := $(addprefix $(LIBFT_PATH), $(MAND_H))
-BONUS_HP := $(addprefix $(LIBFT_PATH), $(BONUS_H))
-GNL_HP := $(addprefix $(LIBFT_PATH), $(GNL_H))
-X_HP := $(addprefix $(LIBFT_PATH), $(X_H))
-HEADER_FP := $(addprefix $(LIBFT_PATH), $(HEADER)) 
+CC			:= 	@gcc
+CFLAGS		:= -Wall -Werror -Wextra -MMD
+RM			:= @rm -f
+LIBC		:= @ar -rcs
+HEADER		:= libft.h 
+MAND_H		:= $(addprefix $(MAND_PATH), libft_mand.h)
+BONUS_H		:= $(addprefix $(BONUS_PATH), libft_bonus.h)
+GNL_H		:= $(addprefix $(GNL_PATH), get_next_line.h)
+X_H			:= $(addprefix $(X_PATH), libft_extra.h)
+MAND_HP		:= $(addprefix $(LIBFT_PATH), $(MAND_H))
+BONUS_HP	:= $(addprefix $(LIBFT_PATH), $(BONUS_H))
+GNL_HP		:= $(addprefix $(LIBFT_PATH), $(GNL_H))
+X_HP		:= $(addprefix $(LIBFT_PATH), $(X_H))
+HEADER_FP	:= $(addprefix $(LIBFT_PATH), $(HEADER)) 
 
-%.o : %.c ${HEADER}
+folder_create = $(shell mkdir -p $(1))
+
+.SECONDEXPANSION:
+
+$(BUILD_PATH)%.o: %.c ${HEADER} | $$(call folder_create,$$(dir $$@))
+	@echo "Compiling " $< " ..."
 	${CC} ${CFLAGS} -c $< -o $@
 
 all : $(NAME)
 
--include $(DEPS)
-$(NAME) : $(OBJ) $(HEADER) $(MAND_H)
-	$(LIBC) $(NAME) $(OBJ)
-	@echo $(SRC_FP) $(HEADER_FP) $(MAND_HP) > $(NAME:.a=.d)
+$(BUILD_PATH):
+	mkdir -p -m 777 $@
 
--include $(DEPS) $(DEPSB)
-bonus: $(OBJ) $(OBJB) $(OBJGNL) $(OBJX) $(HEADER) $(MAND_H) $(GNL_H) $(X_H) $(BONUS_H)
-	$(LIBC) $(NAME) $(OBJ) $(OBJB) $(OBJX) $(OBJGNL)
-	@echo $(SRC_FP) $(SRCB_FP) $(SRCGNL_FP) $(SRCX_FP) \
+-include $(DEPSM) $(DEPSB)
+$(NAME): $(OBJM) $(OBJB) $(OBJGNL) $(OBJX) $(HEADER) $(MAND_H) $(GNL_H) $(X_H) $(BONUS_H) Makefile
+	$(LIBC) $(NAME) $(OBJM) $(OBJB) $(OBJX) $(OBJGNL)
+	@echo $(SRCM_FP) $(SRCB_FP) $(SRCGNL_FP) $(SRCX_FP) \
 		$(HEADER_FP) $(MAND_HP) $(BONUS_HP) $(GNL_HP) $(X_HP) > $(NAME:.a=.d)
-	@touch $@
 
 clean :
-	$(RM) $(OBJ)
-	$(RM) $(OBJB)
-	$(RM) $(OBJGNL)
-	$(RM) $(OBJX)
-	$(RM) $(DEPS)
-	$(RM) $(DEPSB)
-	$(RM) $(DEPSGNL)
-	$(RM) $(DEPSX)
-	$(RM) *.d
+	@echo "Cleaning libft"
+	$(RM) -Rf ${BUILD_PATH}
+	$(RM) $(NAME:.a=.d)
 
 fclean : clean
+	@echo "Full cleaning libft"
 	$(RM) $(NAME)
-	$(RM) bonus
 
 re: fclean all
 
