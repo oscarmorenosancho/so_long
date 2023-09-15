@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_class.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:41:52 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 17:25:18 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/15 17:59:15 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ t_game	*ft_init_game(t_game *game)
 	}
 	game->t = table_constructor(size);
 	if (! game->t || ! ft_check_map(game) \
-		|| ! ft_map_2_table(game) || ! ft_check_trail(game))
+		// || ! ft_map_2_table(game) || ! ft_check_trail(game))
+		|| ! ft_map_2_table(game))
 		return (game_dispose(&game));
 	if (! ft_create_graph_ctx(game))
 		return (game_dispose(&game));
