@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_map_bonus.c                                :+:      :+:    :+:   */
+/*   ft_read_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:28:05 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/03 17:41:23 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/15 19:06:28 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ t_list	*ft_read_map(char *filename)
 	}
 	list = ft_read_map_lines(fd);
 	cr = close(fd);
+	if (cr)
+		ft_log_error("File close failed\n");
 	list = ft_lstreverse(&list);
 	return (list);
 }

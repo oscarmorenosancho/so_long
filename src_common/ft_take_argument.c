@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_take_argument.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:36:40 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/05 11:17:41 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/15 19:12:39 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 char	*ft_take_argument(int argc, char const *argv[])
 {
+	int	len;
+
 	if (argc < 2)
 	{
 		ft_log_error("You must provide a map file as an argument\n");
@@ -24,5 +26,11 @@ char	*ft_take_argument(int argc, char const *argv[])
 		ft_log_error("Too many arguments\n");
 		exit (-1);
 	}
-	return ((char *)argv[1]);
+	len = ft_strlen_x(argv[1]);
+	if (len < 4 || ft_strncmp(argv[1] + len - 4, ".ber", 4))
+	{
+		ft_log_error("File extension doesn't match with *.ber\n");
+		exit (-1);
+	}
+	return ((char *)argv[1]);	
 }

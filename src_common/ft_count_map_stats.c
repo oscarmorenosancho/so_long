@@ -15,9 +15,8 @@
 static void	ft_update(unsigned int it, char *s, void *acum)
 {
 	t_game_stats	*gs;
-	unsigned int	dit;
 
-	dit = it;
+	(void)it;
 	gs = (t_game_stats *)acum;
 	if (s)
 	{
@@ -38,9 +37,9 @@ static void	ft_update_map_stats(unsigned int i, void *content, void *arg)
 {
 	char			*line;
 
+	(void)i;
 	line = (char *)content;
-	if (i >= 0)
-		ft_strreduce(line, &ft_update, arg);
+	ft_strreduce(line, &ft_update, arg);
 }
 
 void	ft_count_map_stats(t_game *game)

@@ -36,9 +36,9 @@ static void	ft_draw_collectable(unsigned int i, void *content, void *arg)
 {
 	t_game	*game;
 
+	(void)i;
 	game = arg;
-	if (i >= 0)
-		ft_draw_element(game, (int *)content, GO_COLLECT);
+	ft_draw_element(game, (int *)content, GO_COLLECT);
 }
 
 static void	ft_draw_enemy(unsigned int i, void *content, void *arg)
@@ -46,8 +46,8 @@ static void	ft_draw_enemy(unsigned int i, void *content, void *arg)
 	t_game	*game;
 
 	game = arg;
-	if (i >= 0)
-		ft_draw_element(game, (int *)content, GO_ENEMY);
+	(void)i;
+	ft_draw_element(game, (int *)content, GO_ENEMY);
 }
 
 int	ft_draw_game_chars(t_game *game)

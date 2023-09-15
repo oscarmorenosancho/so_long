@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_update_enemies.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 10:11:19 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/08 12:47:42 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/15 19:12:10 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static void	ft_update_enemy(unsigned int i, void *item, void *arg)
 	int		*pos;
 	t_game	*game;
 
-	if (! arg || ! item || i < 0)
+	(void)i;
+	if (! arg || ! item)
 		return ;
 	game = arg;
 	pos = item;
