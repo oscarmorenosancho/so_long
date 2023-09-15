@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_log_error.c                                     :+:      :+:    :+:   */
+/*   ft_delete_str_arr.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 14:46:13 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/08/31 14:53:56 by omoreno-         ###   ########.fr       */
+/*   Created: 2023/07/25 17:17:28 by omoreno-          #+#    #+#             */
+/*   Updated: 2023/07/26 09:39:36 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_extra.h"
 
-int	ft_log_error(char *msg)
+void	ft_delete_str_arr(char **str_arr)
 {
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(msg, 2);
-	return (0);
+	int	i;
+
+	if (!str_arr)
+		return ;
+	i = 0;
+	while (str_arr[i])
+	{
+		free(str_arr[i]);
+		i++;
+	}
+	free(str_arr);
 }

@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:17:34 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/07/21 13:16:15 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/07/25 17:18:18 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,6 @@ void	ft_set_pos(int *pos, int x, int y);
 void	ft_add_pos(int *pos, int *displ);
 t_list	*ft_findfirst_with_pos(t_list *lst, int *pos);
 char	*ft_str_merge(char **s1, char **s2);
+t_list	*ft_lstextract_front(t_list **lst);
+void	ft_delete_str_arr(char **str_arr);
 #endif

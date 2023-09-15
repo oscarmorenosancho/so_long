@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_log_error.c                                     :+:      :+:    :+:   */
+/*   ft_lstextract_front.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 14:46:13 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/08/31 14:53:56 by omoreno-         ###   ########.fr       */
+/*   Created: 2023/07/25 15:41:25 by omoreno-          #+#    #+#             */
+/*   Updated: 2023/07/25 15:44:56 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_extra.h"
 
-int	ft_log_error(char *msg)
+t_list	*ft_lstextract_front(t_list **lst)
 {
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(msg, 2);
-	return (0);
+	t_list	*node;
+
+	node = NULL;
+	if (lst && *lst)
+	{
+		node = *lst;
+		*lst = node->next;
+		node->next = NULL;
+	}
+	return (node);
 }

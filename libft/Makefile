@@ -6,12 +6,13 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 11:10:43 by omoreno-          #+#    #+#              #
-#    Updated: 2023/07/24 17:13:09 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/09/15 17:38:12 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libft.a
-SRC := ft_isalnum.c\
+SRC := ft_isspace.c\
+	ft_isalnum.c\
 	ft_isalpha.c\
 	ft_isascii.c\
 	ft_isdigit.c\
@@ -71,7 +72,9 @@ SRCX := ft_copy_pos.c\
 	ft_lstdeletenode.c\
 	ft_lstfindfirst.c\
 	ft_strreduce.c\
-	ft_str_merge.c
+	ft_str_merge.c\
+	ft_lstextract_front.c\
+	ft_delete_str_arr.c 
 
 LIBFT_PATH	:= libft/
 SRC_PATH	:= src/
@@ -79,7 +82,7 @@ MAND_PATH	:= $(addprefix $(SRC_PATH), mand/)
 BONUS_PATH	:= $(addprefix $(SRC_PATH), lst/)
 GNL_PATH	:= $(addprefix $(SRC_PATH), get_next_line/)
 X_PATH		:= $(addprefix $(SRC_PATH), extra/)
-BUILD_PATH	:= build/
+BUILD_PATH	:= .build/
 
 SRCM_F		:= $(addprefix $(MAND_PATH), $(SRC))
 SRCB_F		:= $(addprefix $(BONUS_PATH), $(SRCB))
@@ -102,7 +105,7 @@ DEPSGNL		:= $(addprefix $(BUILD_PATH),$(SRCGNL_F:.c=.d))
 DEPSX		:= $(addprefix $(BUILD_PATH),$(SRCX_F:.c=.d))
 
 CC			:= 	@gcc
-CFLAGS		:= -Wall -Werror -Wextra -MMD
+CFLAGS		:= -Wall -Werror -Wextra -MMD -g
 RM			:= @rm -f
 LIBC		:= @ar -rcs
 HEADER		:= libft.h 
@@ -121,7 +124,7 @@ folder_create = $(shell mkdir -p $(1))
 .SECONDEXPANSION:
 
 $(BUILD_PATH)%.o: %.c ${HEADER} | $$(call folder_create,$$(dir $$@))
-	@echo "Compiling " $< " ..."
+	@echo "Compiling " $@ " ..."
 	${CC} ${CFLAGS} -c $< -o $@
 
 all : $(NAME)
@@ -131,6 +134,7 @@ $(BUILD_PATH):
 
 -include $(DEPSM) $(DEPSB)
 $(NAME): $(OBJM) $(OBJB) $(OBJGNL) $(OBJX) $(HEADER) $(MAND_H) $(GNL_H) $(X_H) $(BONUS_H) Makefile
+	@echo "Linking " $@ " ..."
 	$(LIBC) $(NAME) $(OBJM) $(OBJB) $(OBJX) $(OBJGNL)
 	@echo $(SRCM_FP) $(SRCB_FP) $(SRCGNL_FP) $(SRCX_FP) \
 		$(HEADER_FP) $(MAND_HP) $(BONUS_HP) $(GNL_HP) $(X_HP) > $(NAME:.a=.d)

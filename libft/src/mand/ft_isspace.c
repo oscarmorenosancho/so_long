@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_log_error.c                                     :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 14:46:13 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/08/31 14:53:56 by omoreno-         ###   ########.fr       */
+/*   Created: 2023/07/27 13:43:28 by omoreno-          #+#    #+#             */
+/*   Updated: 2023/07/27 13:45:00 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_extra.h"
-
-int	ft_log_error(char *msg)
+int	ft_isspace(int c)
 {
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(msg, 2);
-	return (0);
+	int	ret;
+
+	ret = ((c == ' ') || (c == '\n') || (c == '\t')
+			|| (c == '\v') || (c == '\f') || (c == '\r'));
+	return (ret);
 }

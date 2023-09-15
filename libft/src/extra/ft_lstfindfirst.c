@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 14:46:19 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/07/24 10:45:18 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/08/28 12:03:40 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ t_list	*ft_lstfindfirst(t_list *lst, \
 		cur = cur->next;
 		i++;
 	}
-	return (cur);
+	return (NULL);
 }

@@ -3,23 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 09:35:56 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/01 13:08:25 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:45:57 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_mand.h"
-
-static int	ft_isspace(char c)
-{
-	int	ret;
-
-	ret = ((c == ' ') || (c == '\n') || (c == '\t')
-			|| (c == '\v') || (c == '\f') || (c == '\r'));
-	return (ret);
-}
 
 static int	ft_take_sign(char **p)
 {
