@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:37:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/20 15:52:25 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/20 23:19:23 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,20 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stddef.h>
-# define MAX_GO			6
-# define DISP_WIDTH		2600
-# define DISP_HEIGHT	1360
+# define MAX_GO				6
+# define DISP_WIDTH			2600
+# define DISP_HEIGHT		1360
+# ifdef __linux__
+# define FRAME_DELAY    	0x04000
+# define CHARS_DELAY    	0x02000
+# define ENEMY_DELAY    	0x10000
+# define ANIMATION_RATIO    0x04000
+# else
+# define FRAME_DELAY    	0x04
+# define CHARS_DELAY    	0x02
+# define ENEMY_DELAY    	0x10
+# define ANIMATION_RATIO    0x10
+#endif
 
 //Prototypes
 //ON_KEYDOWN	2	int (*f)(int keycode, void *param)

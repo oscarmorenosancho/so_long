@@ -26,7 +26,7 @@ static void	ft_draw_element(t_game *game, int *pos, int el)
 	else if (el == GO_EXIT && (gr_ctx->gos[el]->count) > game->exit_seq)
 		seq = game->exit_seq;
 	if (gr_ctx->gos[el]->seqs[seq]->count > 0)
-		frame = (game->frame / 16) % gr_ctx->gos[el]->seqs[seq]->count;
+		frame = (game->frame / ANIMATION_RATIO) % gr_ctx->gos[el]->seqs[seq]->count;
 	mlx_put_image_to_window(gr_ctx->inst, gr_ctx->wnd, \
 		gr_ob_get_img_ref(gr_ctx->gos[el], seq, frame), \
 		pos[0] * game->block_size[0], pos[1] * game->block_size[1]);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_draw.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 10:34:06 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/08 12:58:17 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/20 23:27:09 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,27 @@ static void	ft_draw_movements(t_game *game)
 	free_x((void **)&str);
 }
 
+static void	ft_main_draw(t_game *game)
+{
+	const int	disp_frame = (game->frame % FRAME_DELAY == 0);
+	const int	disp_chars = (game->frame % CHARS_DELAY == 0);
+
+	if (disp_frame)
+		ft_draw_table(game);
+	if (disp_chars)
+		ft_draw_game_chars(game);
+	if (disp_frame && game->movs_on_gr)
+		ft_draw_movements(game);
+}
+
 int	ft_draw(t_game *game)
 {
-	t_graphics	*gr_ctx;
 	t_list		*enemy;
 	int			same_pos[0];
 
 	if (! game || game->exit_cmd)
 		return (0);
-	gr_ctx = game->gr_ctx;
-	mlx_clear_window(gr_ctx->inst, gr_ctx->wnd);
-	ft_draw_table(game);
-	ft_draw_game_chars(game);
-	if (game->movs_on_gr)
-		ft_draw_movements(game);
+	ft_main_draw(game);
 	ft_update_enemies(game);
 	ft_set_pos(same_pos, 0, 0);
 	enemy = ft_check_collision(game, same_pos, GO_ENEMY);

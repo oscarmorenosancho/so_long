@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 10:11:19 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/15 19:12:10 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/20 22:29:40 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ static void	ft_update_enemy(unsigned int i, void *item, void *arg)
 
 void	ft_update_enemies(t_game *game)
 {
-	if (game->frame % 128 == 0)
+	if (game->frame % ENEMY_DELAY == 0)
 		ft_lstreduce(game->enemies, &ft_update_enemy, game);
 }
