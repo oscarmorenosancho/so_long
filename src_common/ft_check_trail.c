@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:05:36 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/20 16:01:49 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:37:09 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,19 @@ int	ft_extract_chars_n_check_trail(t_game *game)
 	int				res;
 
 	res = 1;
+	td.stack = NULL;
+	td.pos = NULL;
+	td.node = NULL;
 	ft_init_stats(&td.stats);
 	if (! game || ! game->t || ! game->t->mat)
 		return (1);
 	td.t = table_dup(game->t);
 	if (! td.t)
 		return (0);
-	if (ft_extract_game_chars(game))
-		// return (ft_check_trail(game, &td));
-		return (1);
+	res = ft_extract_game_chars(game);
+	if (res)
+		return (ft_check_trail(game, &td));
+		//return (res);
 	table_dispose(&td.t);
-	return (0);
+	return (res);
 }
