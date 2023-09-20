@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image_class.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:54:12 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 15:05:05 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:44:49 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	image_dispose(t_image **img)
 	if (! img)
 		return (0);
 	limg = *img;
+	if (! limg)
+		return (0);
 	if (limg->ref)
 	{
 		gr_ctx = limg->gr_ctx;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fr_seq_class.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 17:09:20 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 18:10:41 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:48:48 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ int	fr_seq_dispose(t_fr_seq **fs)
 	if (! fs)
 		return (0);
 	lfs = *fs;
+	if (! lfs)
+		return (0);
 	i = 0;
 	while (i < lfs->count)
 	{

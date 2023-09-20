@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gr_ob_class.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 12:45:10 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/12/07 18:12:34 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:59:19 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	gr_ob_dispose(t_gr_ob **go)
 	if (! go)
 		return (0);
 	lgo = *go;
+	if (! lgo)
+		return (0);
 	i = 0;
 	while (i < lgo->count)
 	{
