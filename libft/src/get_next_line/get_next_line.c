@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:22:42 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/08 12:26:16 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:20:57 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static char	*ft_read_n_extract(int fd, char **buffer, int *read_ret, \
 
 char	*get_next_line(int fd)
 {
-	static char	*buf;
+	static char	*buf = 0;
 	char		*line;
 	int			r_r;
 	size_t		buf_size;

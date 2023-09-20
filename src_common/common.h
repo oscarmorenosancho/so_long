@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:37:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/15 18:01:45 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:52:25 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -256,7 +256,7 @@ t_game		*game_dispose(t_game **game);
 void		ft_count_map_stats(t_game *game);
 int			ft_check_map(t_game *game);
 int			ft_map_2_table(t_game *game);
-int			ft_check_trail(t_game *game);
+int			ft_extract_chars_n_check_trail(t_game *game);
 t_game		*ft_init_game(t_game *game);
 int			ft_extract_game_chars(t_game *game);
 t_list		*ft_findfirst_with_pos(t_list *lst, int *pos);

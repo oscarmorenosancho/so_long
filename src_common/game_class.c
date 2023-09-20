@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:41:52 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/20 14:58:25 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:56:07 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ t_game	*ft_init_game(t_game *game)
 		game_dispose(&game);
 	}
 	game->t = table_constructor(size);
-	if (! game->t || ! ft_check_map(game) \
-		|| ! ft_map_2_table(game) || ! ft_check_trail(game))
+	if (! game->t || ! ft_check_map(game) || ! ft_map_2_table(game) \
+		|| ! ft_extract_chars_n_check_trail(game))
 		return (game_dispose(&game));
 	if (! ft_create_graph_ctx(game))
 		return (game_dispose(&game));
