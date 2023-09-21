@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:37:53 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/21 09:41:52 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/21 10:58:10 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@
 #  define FRAME_DELAY    	0x04000
 #  define CHARS_DELAY    	0x02000
 #  define ENEMY_DELAY    	0x10000
-#  define ANIMATION_RATIO    0x04000
+#  define ANIM_RATIO    0x04000
 # else
 #  define FRAME_DELAY    	0x02
 #  define CHARS_DELAY    	0x02
 #  define ENEMY_DELAY    	0x40
-#  define ANIMATION_RATIO    0x10
+#  define ANIM_RATIO    0x10
 # endif
 
 //Prototypes

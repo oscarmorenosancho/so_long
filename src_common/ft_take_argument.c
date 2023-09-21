@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:36:40 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/15 19:12:39 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:00:35 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ char	*ft_take_argument(int argc, char const *argv[])
 		ft_log_error("File extension doesn't match with *.ber\n");
 		exit (-1);
 	}
-	return ((char *)argv[1]);	
+	return ((char *)argv[1]);
 }
