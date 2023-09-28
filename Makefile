@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2023/09/20 23:46:42 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/09/28 15:44:53 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -125,7 +125,7 @@ ${LIBFT_A} : ${LIBFT_D_CONT} libft/Makefile
 ${MLX_A} : $(MLX_PATH)
 	@echo "Making " $@ " if nececessary..."
 	@echo "Host Operative System: " ${OS}
-	@make -C mlx 2> /dev/null 1> /dev/null
+	@make3.81 -C mlx 2> /dev/null 1> /dev/null
 
 $(MLX_PATH) :
 	cp -R $(MLX_OS_PATH) $(MLX_PATH)
