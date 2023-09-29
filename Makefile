@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 10:34:11 by omoreno-          #+#    #+#              #
-#    Updated: 2023/09/28 15:44:53 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/09/29 19:52:13 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,10 +87,12 @@ ifeq ($(OS),linux)
 	LIBS_FLAGS		:= ${LIBS_LX_FLAGS}
 	LIBS_FLAGS_LK	:= ${LIBS_LX_FLAGS_LK}
 	MLX_OS_PATH		:= ${MLX_LX_PATH}
+	OLD_MAKE		:= @make
 else
 	LIBS_FLAGS		:=
 	LIBS_FLAGS_LK	:= ${LIBS_MC_FLAGS}
 	MLX_OS_PATH		:= ${MLX_MC_PATH}
+	OLD_MAKE		:= @make3.81
 endif
 LIBFT_D_CONT	:= $(shell cat ${LIBFT_D} 2> /dev/null)
 
@@ -125,7 +127,7 @@ ${LIBFT_A} : ${LIBFT_D_CONT} libft/Makefile
 ${MLX_A} : $(MLX_PATH)
 	@echo "Making " $@ " if nececessary..."
 	@echo "Host Operative System: " ${OS}
-	@make3.81 -C mlx 2> /dev/null 1> /dev/null
+	${OLD_MAKE} -C mlx 2> /dev/null 1> /dev/null
 
 $(MLX_PATH) :
 	cp -R $(MLX_OS_PATH) $(MLX_PATH)
